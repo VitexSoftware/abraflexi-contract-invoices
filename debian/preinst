@@ -1,0 +1,15 @@
+#!/bin/sh
+# preinst script for php-flexibee-matcher
+
+set -e
+
+  if [ "$1" = "configure" ]; then
+
+    . /usr/share/debconf/confmodule
+
+  fi
+
+
+#DEBHELPER#
+
+exit 0

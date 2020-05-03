@@ -1,0 +1,29 @@
+{
+    "name": "deb/flexibee-contract-invoices",
+    "description": "Trigger FlexiBee contract's invoices generator",
+    "type": "project",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "config": {
+        "vendor-dir": "/var/lib/flexibee-contract-invoices"
+    },
+    "require": {
+        "deb/ease-core": "*",
+        "deb/flexibee": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/Ease"
+        },
+        {
+            "type": "path",
+            "url": "/usr/share/php/FlexiPeeHP"
+        }
+    ]
+}

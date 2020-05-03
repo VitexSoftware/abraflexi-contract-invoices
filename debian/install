@@ -1,0 +1,3 @@
+debian/conf/composer.json       usr/lib/flexibee-contract-invoices/
+src/*			        usr/lib/flexibee-contract-invoices/
+bin/*                           usr/bin/

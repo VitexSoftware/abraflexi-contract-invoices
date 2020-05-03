@@ -1,0 +1,16 @@
+{
+    "name": "spojenet/flexibee-contract-invoices",
+    "description": "Trigger FlexiBee's cotract to invoice generator",
+    "type": "project",
+    "require": {
+        "spoje.net/flexibee": "^1.35"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "minimum-stability": "stable"
+}

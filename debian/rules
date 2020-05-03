@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	sed -i -e 's/..\/vendor/\/var\/lib\/flexibee-contract-invoices/g' 	debian/flexibee-contract-invoices/usr/lib/flexibee-contract-invoices/GenerujFakturyZeSmluv.php
+	sed -i -e 's/\.\./\/etc\/flexibee/g' 	     				debian/flexibee-contract-invoices/usr/lib/flexibee-contract-invoices/GenerujFakturyZeSmluv.php

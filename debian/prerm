@@ -1,0 +1,8 @@
+#!/bin/bash
+# rm script for flexibee-contract-invoices
+
+rm -fr /usr/lib/flexibee-contract-invoices/composer.lock /var/lib/flexibee-contract-invoices
+
+#DEBHELPER#
+
+exit 0

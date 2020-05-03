@@ -1,0 +1,17 @@
+Source: flexibee-contract-invoices
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 4.2.3
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Uploaders: Vitex <vitex@hippy.cz>
+Priority: optional
+Homepage: https://github.com/VitexSoftware/flexibee-contract-invoices
+
+Package: flexibee-contract-invoices
+Depends: ${misc:Depends},  php-flexibee, php-cli
+Suggests: flexibee-server, php-flexibee-config, multi-flexibee-setup
+Architecture: all
+Section: office
+Priority: optional
+Description: Trigger FlexiBee contracts to generate invoices
+ Commandline tool used to start generating invoices in FlexiBee based on contracts
+
