@@ -1,5 +1,0 @@
-tests/src/* 	usr/share/php/EaseCoreTests
-Examples/*      usr/share/doc/php-ease-core-dev
-debian/ease-mailer-test usr/bin
-
-

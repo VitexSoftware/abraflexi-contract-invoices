@@ -1,7 +1,9 @@
-flexibee-contract-invoices (0.1) UNRELEASED; urgency=medium
+flexibee-contract-invoices (0.2) UNRELEASED; urgency=medium
 
   [ vitex ]
   * Initial release
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Wed, 29 Apr 2020 00:10:31 +0200
+  [ CyberVitexus ]
+  * debian package fix
 
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Tue, 05 May 2020 13:57:12 +0200
