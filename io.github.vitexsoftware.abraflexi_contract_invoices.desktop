@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=abraflexi-contract-invoices
+Comment=Trigger AbraFlexi contracts to invoice generator
+Categories=Office;Finance;
+
+Icon=abraflexi-contract-invoices
+Exec=abraflexi-contract-invoices
+Terminal=false

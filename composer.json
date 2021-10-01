@@ -1,9 +1,9 @@
 {
-    "name": "spojenet/flexibee-contract-invoices",
-    "description": "Trigger FlexiBee's cotract to invoice generator",
+    "name": "spojenet/abraflexi-contract-invoices",
+    "description": "Trigger AbraFlexi's cotract to invoice generator",
     "type": "project",
     "require": {
-        "spoje.net/flexibee": "^1.35"
+        "spojenet/abraflexi": ">=2.14"
     },
     "license": "MIT",
     "authors": [

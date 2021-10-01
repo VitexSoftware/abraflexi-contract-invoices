@@ -1,17 +1,17 @@
-Source: flexibee-contract-invoices
-Build-Depends: debhelper (>= 7.0.50~)
+Source: abraflexi-contract-invoices
+Build-Depends: debhelper (>= 7.0.50~), jq, moreutils 
 Standards-Version: 4.2.3
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
 Priority: optional
-Homepage: https://github.com/VitexSoftware/flexibee-contract-invoices
+Homepage: https://github.com/VitexSoftware/abraflexi-contract-invoices
 
-Package: flexibee-contract-invoices
-Depends: ${misc:Depends},  php-flexibee, php-cli
-Suggests: flexibee-server, php-flexibee-config, multi-flexibee-setup
+Package: abraflexi-contract-invoices
+Depends: ${misc:Depends},  php-abraflexi, php-cli
+Suggests: abraflexi-server, php-abraflexi-config, multiflexi
 Architecture: all
 Section: office
 Priority: optional
-Description: Trigger FlexiBee contracts to generate invoices
- Commandline tool used to start generating invoices in FlexiBee based on contracts
+Description: Trigger AbraFlexi contracts to invoice generator
+ Commandline tool used to start generating invoices in AbraFlexi based on contracts
 

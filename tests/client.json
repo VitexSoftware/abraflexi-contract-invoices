@@ -1,12 +1,12 @@
 {
-    "FLEXIBEE_URL": "https:\/\/vitexsoftware.flexibee.eu:5434",
-    "FLEXIBEE_LOGIN": "flexipeehp",
-    "FLEXIBEE_PASSWORD": "8Ojeton_",
-    "FLEXIBEE_COMPANY": "flexipeehp",
+    "ABRAFLEXI_URL": "https:\/\/vitexsoftware.abraflexi.eu:5434",
+    "ABRAFLEXI_LOGIN": "flexipeehp",
+    "ABRAFLEXI_PASSWORD": "8Ojeton_",
+    "ABRAFLEXI_COMPANY": "flexipeehp",
    
-    "xFLEXIBEE_URL": "https:\/\/localhost:5434",                                                                                                                                                                                             
-    "xFLEXIBEE_LOGIN": "admin",                                                                                                                                                                                                              
-    "xFLEXIBEE_PASSWORD": "admin123",                                                                                                                                                                                                        
-    "xFLEXIBEE_COMPANY": "demo"
+    "xABRAFLEXI_URL": "https:\/\/localhost:5434",                                                                                                                                                                                             
+    "xABRAFLEXI_LOGIN": "admin",                                                                                                                                                                                                              
+    "xABRAFLEXI_PASSWORD": "admin123",                                                                                                                                                                                                        
+    "xABRAFLEXI_COMPANY": "demo"
     
 }

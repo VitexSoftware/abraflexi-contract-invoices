@@ -1,7 +1,7 @@
 #!/bin/bash
-# rm script for flexibee-contract-invoices
+# rm script for abraflexi-contract-invoices
 
-rm -fr /usr/lib/flexibee-contract-invoices/composer.lock /var/lib/flexibee-contract-invoices
+rm -fr /usr/lib/abraflexi-contract-invoices/composer.lock /var/lib/abraflexi-contract-invoices
 
 #DEBHELPER#
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5133b7853991d6752b22b3694679f37c",
+    "content-hash": "dfa73f2604673263b40dc3948c97464c",
     "packages": [
         {
             "name": "pear/console_getopt",
@@ -51,6 +51,10 @@
                 }
             ],
             "description": "More info available on: http://pear.php.net/package/Console_Getopt",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_Getopt",
+                "source": "https://github.com/pear/Console_Getopt"
+            },
             "time": "2019-11-20T18:27:48+00:00"
         },
         {
@@ -109,24 +113,29 @@
             ],
             "description": "Class that provides multiple interfaces for sending emails.",
             "homepage": "http://pear.php.net/package/Mail",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Mail",
+                "source": "https://github.com/pear/Mail"
+            },
             "time": "2017-04-11T17:27:29+00:00"
         },
         {
             "name": "pear/mail_mime",
-            "version": "1.10.7",
+            "version": "1.10.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/Mail_Mime.git",
-                "reference": "4b4c1f9c2850e9fd646ea6a25f11d4735b36edbd"
+                "reference": "d4fb9ce61201593d0f8c6db629c45e29c3409c14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Mail_Mime/zipball/4b4c1f9c2850e9fd646ea6a25f11d4735b36edbd",
-                "reference": "4b4c1f9c2850e9fd646ea6a25f11d4735b36edbd",
+                "url": "https://api.github.com/repos/pear/Mail_Mime/zipball/d4fb9ce61201593d0f8c6db629c45e29c3409c14",
+                "reference": "d4fb9ce61201593d0f8c6db629c45e29c3409c14",
                 "shasum": ""
             },
             "require": {
-                "pear/pear-core-minimal": "*"
+                "pear/pear-core-minimal": "*",
+                "php": ">=5.2.0"
             },
             "type": "library",
             "autoload": {
@@ -139,7 +148,7 @@
                 "./"
             ],
             "license": [
-                "BSD-3-clause"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -155,20 +164,24 @@
             ],
             "description": "Mail_Mime provides classes to create MIME messages",
             "homepage": "http://pear.php.net/package/Mail_Mime",
-            "time": "2020-03-01T07:54:36+00:00"
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Mail_Mime",
+                "source": "https://github.com/pear/Mail_Mime"
+            },
+            "time": "2021-09-05T08:42:45+00:00"
         },
         {
             "name": "pear/pear-core-minimal",
-            "version": "v1.10.10",
+            "version": "v1.10.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/pear-core-minimal.git",
-                "reference": "625a3c429d9b2c1546438679074cac1b089116a7"
+                "reference": "68d0d32ada737153b7e93b8d3c710ebe70ac867d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/625a3c429d9b2c1546438679074cac1b089116a7",
-                "reference": "625a3c429d9b2c1546438679074cac1b089116a7",
+                "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/68d0d32ada737153b7e93b8d3c710ebe70ac867d",
+                "reference": "68d0d32ada737153b7e93b8d3c710ebe70ac867d",
                 "shasum": ""
             },
             "require": {
@@ -199,27 +212,31 @@
                 }
             ],
             "description": "Minimal set of PEAR core files to be used as composer dependency",
-            "time": "2019-11-19T19:00:24+00:00"
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR",
+                "source": "https://github.com/pear/pear-core-minimal"
+            },
+            "time": "2021-08-10T22:31:03+00:00"
         },
         {
             "name": "pear/pear_exception",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/PEAR_Exception.git",
-                "reference": "dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7"
+                "reference": "b14fbe2ddb0b9f94f5b24cf08783d599f776fff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7",
-                "reference": "dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/b14fbe2ddb0b9f94f5b24cf08783d599f776fff0",
+                "reference": "b14fbe2ddb0b9f94f5b24cf08783d599f776fff0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=4.4.0"
+                "php": ">=5.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "*"
+                "phpunit/phpunit": "<9"
             },
             "type": "class",
             "extra": {
@@ -254,37 +271,45 @@
             "keywords": [
                 "exception"
             ],
-            "time": "2019-12-10T10:24:42+00:00"
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR_Exception",
+                "source": "https://github.com/pear/PEAR_Exception"
+            },
+            "time": "2021-03-21T15:43:46+00:00"
         },
         {
-            "name": "spoje.net/flexibee",
-            "version": "1.35",
+            "name": "spojenet/abraflexi",
+            "version": "2.14",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Spoje-NET/php-flexibee.git",
-                "reference": "691bd4214af34f1297729b260e775354e6361d48"
+                "url": "https://github.com/Spoje-NET/php-abraflexi.git",
+                "reference": "0fa6509f9a4479f0acee178e85d4f64096dd651b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spoje-NET/php-flexibee/zipball/691bd4214af34f1297729b260e775354e6361d48",
-                "reference": "691bd4214af34f1297729b260e775354e6361d48",
+                "url": "https://api.github.com/repos/Spoje-NET/php-abraflexi/zipball/0fa6509f9a4479f0acee178e85d4f64096dd651b",
+                "reference": "0fa6509f9a4479f0acee178e85d4f64096dd651b",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "vitexsoftware/ease-core": ">=0.37"
+                "ext-gettext": "*",
+                "ext-json": "*",
+                "vitexsoftware/ease-core": ">=1.9"
             },
             "replace": {
-                "spoje.net/flexipeehp": ">1.32"
+                "spoje.net/abraflexi": "*",
+                "spoje.net/flexipeehp": "*"
             },
             "require-dev": {
-                "phing/phing": "*",
-                "phpunit/phpunit": "*"
+                "ext-iconv": "*",
+                "phing/phing": "^2",
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "FlexiPeeHP\\": "src/FlexiPeeHP/"
+                    "AbraFlexi\\": "src/AbraFlexi/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -297,21 +322,25 @@
                     "email": "vitex@arachne.cz"
                 }
             ],
-            "description": "Library for easy interaction with czech accounting system FlexiBee.",
-            "time": "2020-05-02T20:51:21+00:00"
+            "description": "Library for easy interaction with czech accounting system AbraFlexi.",
+            "support": {
+                "issues": "https://github.com/Spoje-NET/php-abraflexi/issues",
+                "source": "https://github.com/Spoje-NET/php-abraflexi/tree/2.14"
+            },
+            "time": "2021-09-22T10:19:16+00:00"
         },
         {
             "name": "vitexsoftware/ease-core",
-            "version": "0.37",
+            "version": "1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VitexSoftware/php-ease-core.git",
-                "reference": "3edd98a3ace6bb38b2d5032837a14392d3bb8236"
+                "reference": "cd2ab87958c5ec73511816a42d13e81ea364102e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VitexSoftware/php-ease-core/zipball/3edd98a3ace6bb38b2d5032837a14392d3bb8236",
-                "reference": "3edd98a3ace6bb38b2d5032837a14392d3bb8236",
+                "url": "https://api.github.com/repos/VitexSoftware/php-ease-core/zipball/cd2ab87958c5ec73511816a42d13e81ea364102e",
+                "reference": "cd2ab87958c5ec73511816a42d13e81ea364102e",
                 "shasum": ""
             },
             "require": {
@@ -323,10 +352,8 @@
                 "vitexsoftware/ease-framework": "*"
             },
             "require-dev": {
-                "jakub-onderka/php-console-highlighter": "*",
-                "jakub-onderka/php-parallel-lint": "*",
-                "php-coveralls/php-coveralls": "*",
-                "phpunit/phpunit": "*"
+                "phpunit/phpunit": "^9",
+                "roave/security-advisories": "dev-latest"
             },
             "type": "library",
             "autoload": {
@@ -337,7 +364,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "MIT"
             ],
             "authors": [
                 {
@@ -348,7 +375,17 @@
             ],
             "description": "An PHP Framework for writing Applications",
             "homepage": "http://v.s.cz/ease.php",
-            "time": "2020-04-10T08:17:50+00:00"
+            "support": {
+                "issues": "https://github.com/VitexSoftware/php-ease-core/issues",
+                "source": "https://github.com/VitexSoftware/php-ease-core/tree/1.12"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/VitexSoftware",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-03-02T10:59:13+00:00"
         }
     ],
     "packages-dev": [],
@@ -359,5 +396,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

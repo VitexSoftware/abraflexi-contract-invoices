@@ -1,0 +1,2 @@
+#!/bin/sh
+php -f /usr/lib/abraflexi-contract-invoices/GenerujFakturyZeSmluv.php

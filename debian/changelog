@@ -1,21 +1,12 @@
-flexibee-contract-invoices (0.3) UNRELEASED; urgency=medium
+abraflexi-contract-invoices (1.0) UNRELEASED; urgency=medium
 
   [ vitex ]
   * Initial release
 
   [ CyberVitexus ]
   * debian package fix
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 22:26:19 +0200
+  [ vitex ]
+  * v1.0 release
+
+ -- vitex <vitex@exiv.brevnov.czf>  Sat, 02 Oct 2021 00:37:47 +0200

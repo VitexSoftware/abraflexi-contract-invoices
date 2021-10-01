@@ -4,50 +4,50 @@
 .\"man mdoc for the short list of editing options
 .\"/usr/share/misc/mdoc.template
 .Dd 3/5/20               \" DATE
-.Dt flexibee-contract-invoices 1      \" Program name and manual section number
+.Dt abraflexi-contract-invoices 1      \" Program name and manual section number
 .Os Linux
 .Sh NAME                 \" Section Header - required - don't modify
-.Nm flexibee-contract-invoices,
+.Nm abraflexi-contract-invoices,
 .Sh SYNOPSIS             \" Section Header - required - don't modify
 .Nm
 .Sh DESCRIPTION          \" Section Header - required - don't modify
-Commandline tool used to start generating invoices in FlexiBee based on contracts
+Commandline tool used to start generating invoices in AbraFlexi based on contracts
 .Nm
 Underlining is accomplished with the .Ar macro like this:
 
 .Sh "ENVIRONMENT VARIABLES"
 
-\fBFLEXIBEE_COMPANY\fR
+\fBABRAFLEXI_COMPANY\fR
 .br
-		Specifies the flexibee company code
-.br
-
-\fBFLEXIBEE_URL\fR
-.br
-		Specifies the flexibee server URL
+		Specifies the abraflexi company code
 .br
 
-\fBFLEXIBEE_LOGIN\fR
+\fBABRAFLEXI_URL\fR
 .br
-		Specifies the flexibee's user login
-.br
-
-\fBFLEXIBEE_PASWORD\fR
-.br
-		Specifies the flexibee's user password
+		Specifies the abraflexi server URL
 .br
 
-\fBFLEXIBEE_AUTHSESSID\fR
+\fBABRAFLEXI_LOGIN\fR
 .br
-		Specifies the flexibee's user auth session ID
-.br
-
-\fBFLEXIBEE_TIMEOUT\fR
-.br
-		Specifies the curl timeout for communication with flexibee
+		Specifies the abraflexi's user login
 .br
 
-\fBFLEXIBEE_EXCEPTIONS\fR
+\fBABRAFLEXI_PASWORD\fR
+.br
+		Specifies the abraflexi's user password
+.br
+
+\fBABRAFLEXI_AUTHSESSID\fR
+.br
+		Specifies the abraflexi's user auth session ID
+.br
+
+\fBABRAFLEXI_TIMEOUT\fR
+.br
+		Specifies the curl timeout for communication with abraflexi
+.br
+
+\fBABRAFLEXI_EXCEPTIONS\fR
 .br
 		if true then throw exeption in case of 4xx or 5xx response
 .br
@@ -60,7 +60,7 @@ Underlining is accomplished with the .Ar macro like this:
 
 .Sh FILES                \" File used or created by the topic of the man page
 .Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
-.It Pa /etc/flexibee/client.json
+.It Pa /etc/abraflexi/client.json
 global static client configuration
 .El                      \" Ends the list
 .SH "AUTHORS"
@@ -69,9 +69,9 @@ CyberVitexus <vitex@exiv.jinonice.czf>
 .Sh SEE ALSO
 .\" List links in ascending order by section, alphabetically within a section.
 .\" Please do not reference files that do not exist without filing a bug report
-.Xr flexibee-matcher-in 1 ,
-.Xr flexibee-matcher-out 1 ,
-.Xr flexibee-client-config 1 ,
+.Xr abraflexi-matcher-in 1 ,
+.Xr abraflexi-matcher-out 1 ,
+.Xr abraflexi-client-config 1 ,
 .\" .Sh BUGS              \" Document known, unremedied bugs
 .\" .Sh HISTORY           \" Document history if command behaves in a unique manner
 

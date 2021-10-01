@@ -1,6 +1,7 @@
-/debian/flexibee-contract-invoices/
-/debian/flexibee-contract-invoices.debhelper.log
-/debian/flexibee-contract-invoices.substvars
+/debian/abraflexi-contract-invoices/
+/debian/abraflexi-contract-invoices.debhelper.log
+/debian/abraflexi-contract-invoices.substvars
 /debian/files
 /debian/.debhelper/
-/vendor/spoje.net/flexibee/nbproject/private/
+/vendor/spoje.net/abraflexi/nbproject/private/
+/debian/debhelper-build-stamp

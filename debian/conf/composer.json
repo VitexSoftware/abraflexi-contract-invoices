@@ -1,29 +1,29 @@
 {
-    "name": "deb/flexibee-contract-invoices",
-    "description": "Trigger FlexiBee contract's invoices generator",
-    "type": "project",
-    "version": "0.1",
-    "authors": [
-        {
-            "name": "Vítězslav Dvořák",
-            "email": "info@vitexsoftware.cz"
-        }
-    ],
-    "config": {
-        "vendor-dir": "/var/lib/flexibee-contract-invoices"
+  "name": "deb/abraflexi-contract-invoices",
+  "description": "Trigger AbraFlexi contract's invoices generator",
+  "type": "project",
+  "version": "0.3",
+  "authors": [
+    {
+      "name": "Vítězslav Dvořák",
+      "email": "info@vitexsoftware.cz"
+    }
+  ],
+  "config": {
+    "vendor-dir": "/var/lib/abraflexi-contract-invoices"
+  },
+  "require": {
+    "deb/ease-core": "*",
+    "deb/abraflexi": "*"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/usr/share/php/EaseCore"
     },
-    "require": {
-        "deb/ease-core": "*",
-        "deb/flexibee": "*"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/usr/share/php/EaseCore"
-        },
-        {
-            "type": "path",
-            "url": "/usr/share/php/FlexiPeeHP"
-        }
-    ]
+    {
+      "type": "path",
+      "url": "/usr/share/php/AbraFlexi"
+    }
+  ]
 }

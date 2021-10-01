@@ -1,5 +1,5 @@
 #!/bin/sh
-# preinst script for php-flexibee-matcher
+# preinst script for abraflexi-contract-invoices
 
 set -e
 
