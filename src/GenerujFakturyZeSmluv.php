@@ -29,7 +29,7 @@ $contractor->logBanner(\Ease\Shared::appName());
 $contractList = $contractor->getColumnsFromAbraFlexi(['id', 'kod', 'nazev', 'firma'], ['autoGen' => true, 'limit' => 0]);
 if ($contractList) {
     foreach ($contractList as $counter => $contractInfo) {
-        $message = $counter . '/' . count($contractList) . ' ' . $contractInfo['nazev'] . ' ' . $contractInfo['firma@showAs'];
+    $message = $counter . '/' . count($contractList) . ' ' . $contractInfo['nazev'] . ' ' . $contractInfo['firma']->showAs;
 
         $contractor->setMyKey($contractInfo['id']);
 
@@ -47,7 +47,7 @@ if ($contractList) {
                         $howMany = intval(end($hmr));
                         $generated = $invoicer->getColumnsFromAbraFlexi(['kod'],
                                 [
-                                    'firma' => \AbraFlexi\RO::code($contractInfo['firma'][0]),
+                                'firma' => \AbraFlexi\RO::code($contractInfo['firma']),
                                     'cisSml' => $contractInfo['kod'],
                                     'limit' => $howMany
                         ]);
