@@ -63,7 +63,7 @@ if ($contractList) {
                 }
             } else {
                 if (array_key_exists('success', $contractor->lastResult) && ($contractor->lastResult['success'] == 'failed')) {
-                    $contractor->addStatusMessage($message . ' ' . $notice, 'warning');
+                    $contractor->addStatusMessage($message, 'warning');
                 }
             }
         } else {
