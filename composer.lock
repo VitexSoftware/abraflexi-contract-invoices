@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfa73f2604673263b40dc3948c97464c",
+    "content-hash": "c508fbaadf0a577e65dfad31df5ac719",
     "packages": [
         {
             "name": "pear/console_getopt",
@@ -278,38 +278,35 @@
             "time": "2021-03-21T15:43:46+00:00"
         },
         {
-            "name": "spojenet/abraflexi",
-            "version": "2.14",
+            "name": "spojenet/flexibee",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spoje-NET/php-abraflexi.git",
-                "reference": "0fa6509f9a4479f0acee178e85d4f64096dd651b"
+                "reference": "ba9aa5189ef78752c9038ef446d45f81acfa6405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spoje-NET/php-abraflexi/zipball/0fa6509f9a4479f0acee178e85d4f64096dd651b",
-                "reference": "0fa6509f9a4479f0acee178e85d4f64096dd651b",
+                "url": "https://api.github.com/repos/Spoje-NET/php-abraflexi/zipball/ba9aa5189ef78752c9038ef446d45f81acfa6405",
+                "reference": "ba9aa5189ef78752c9038ef446d45f81acfa6405",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "ext-gettext": "*",
-                "ext-json": "*",
                 "vitexsoftware/ease-core": ">=1.9"
             },
             "replace": {
-                "spoje.net/abraflexi": "*",
+                "spoje.net/flexibee": "*",
                 "spoje.net/flexipeehp": "*"
             },
             "require-dev": {
-                "ext-iconv": "*",
                 "phing/phing": "^2",
                 "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "AbraFlexi\\": "src/AbraFlexi/"
+                    "FlexiPeeHP\\": "src/FlexiPeeHP/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -322,37 +319,37 @@
                     "email": "vitex@arachne.cz"
                 }
             ],
-            "description": "Library for easy interaction with czech accounting system AbraFlexi.",
+            "description": "Library for easy interaction with czech accounting system FlexiBee.",
             "support": {
                 "issues": "https://github.com/Spoje-NET/php-abraflexi/issues",
-                "source": "https://github.com/Spoje-NET/php-abraflexi/tree/2.14"
+                "source": "https://github.com/Spoje-NET/php-abraflexi/tree/master"
             },
-            "time": "2021-09-22T10:19:16+00:00"
+            "time": "2021-05-20T20:03:57+00:00"
         },
         {
             "name": "vitexsoftware/ease-core",
-            "version": "1.12",
+            "version": "1.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VitexSoftware/php-ease-core.git",
-                "reference": "cd2ab87958c5ec73511816a42d13e81ea364102e"
+                "reference": "c92bbd3a0669d36970ef6f4e31e7721a5a679871"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VitexSoftware/php-ease-core/zipball/cd2ab87958c5ec73511816a42d13e81ea364102e",
-                "reference": "cd2ab87958c5ec73511816a42d13e81ea364102e",
+                "url": "https://api.github.com/repos/VitexSoftware/php-ease-core/zipball/c92bbd3a0669d36970ef6f4e31e7721a5a679871",
+                "reference": "c92bbd3a0669d36970ef6f4e31e7721a5a679871",
                 "shasum": ""
             },
             "require": {
-                "pear/mail": "~1.3",
-                "pear/mail_mime": "~1.10",
+                "pear/mail": ">=1.3",
+                "pear/mail_mime": ">=1.10",
                 "php": ">=7"
             },
             "conflict": {
                 "vitexsoftware/ease-framework": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9",
+                "phpunit/phpunit": ">=9",
                 "roave/security-advisories": "dev-latest"
             },
             "type": "library",
@@ -377,7 +374,7 @@
             "homepage": "http://v.s.cz/ease.php",
             "support": {
                 "issues": "https://github.com/VitexSoftware/php-ease-core/issues",
-                "source": "https://github.com/VitexSoftware/php-ease-core/tree/1.12"
+                "source": "https://github.com/VitexSoftware/php-ease-core/tree/1.37"
             },
             "funding": [
                 {
@@ -385,16 +382,18 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-02T10:59:13+00:00"
+            "time": "2021-11-11T05:11:23+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "spojenet/flexibee": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
