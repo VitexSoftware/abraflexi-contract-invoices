@@ -3,9 +3,13 @@
     "description": "Trigger AbraFlexi's cotract to invoice generator",
     "type": "project",
     "require": {
-        "spojenet/flexibee": "dev-master"
+        "spojenet/flexibee": "dev-main"
     },
     "license": "MIT",
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "phpstan/phpstan": "*"
+    },
     "authors": [
         {
             "name": "Vítězslav Dvořák",

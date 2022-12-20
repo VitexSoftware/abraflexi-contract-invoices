@@ -7,7 +7,7 @@ Priority: optional
 Homepage: https://github.com/VitexSoftware/abraflexi-contract-invoices
 
 Package: abraflexi-contract-invoices
-Depends: ${misc:Depends},  php-abraflexi, php-cli
+Depends: ${misc:Depends},  php-spojenet-abraflexi, php-cli
 Suggests: abraflexi-server, php-abraflexi-config, multiflexi
 Architecture: all
 Section: office
