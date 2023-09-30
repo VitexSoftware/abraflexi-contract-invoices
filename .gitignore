@@ -5,3 +5,4 @@
 /debian/.debhelper/
 /vendor/spoje.net/abraflexi/nbproject/private/
 /debian/debhelper-build-stamp
+/vendor/

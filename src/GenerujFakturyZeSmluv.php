@@ -1,35 +1,21 @@
 <?php
 
-namespace AbraFlexi;
-
-use Ease\Shared;
+use \Ease\Shared;
 
 /**
  * Generate invoices from Contracts
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2018-2022 Spoje.Net
+ * @copyright  2018-2023 Spoje.Net
  */
 define('EASE_APPNAME', 'Contracts2Invoices');
 require_once '../vendor/autoload.php';
-if (file_exists('../.env')) {
-    (new Shared())->loadConfig('../.env', true);
-}
-$cfgKeys = ['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'];
-$configured = true;
-foreach ($cfgKeys as $cfgKey) {
-    if (empty(\Ease\Functions::cfg($cfgKey))) {
-        fwrite(STDERR, 'Requied configuration '.$cfgKey." is not set.".PHP_EOL);
-        $configured = false;
-    }
-}
-if ($configured === false) {
-    exit(1);
-}
 
-$invoicer = new FakturaVydana();
-$contractor = new Smlouva();
-$contractor->logBanner(\Ease\Shared::appName());
+Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'],'../.env');
+
+$invoicer = new \AbraFlexi\FakturaVydana();
+$contractor = new \AbraFlexi\Smlouva();
+$contractor->logBanner(Shared::appName());
 $contractList = $contractor->getColumnsFromAbraFlexi(['id', 'kod', 'nazev', 'firma'],
     ['autoGen' => true, 'limit' => 0]);
 if ($contractList) {
