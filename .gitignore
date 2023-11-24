@@ -7,3 +7,6 @@
 /vendor/spoje.net/abraflexi/nbproject/private/
 /debian/debhelper-build-stamp
 /vendor/
+/debian/multiflexi-abraflexi-contract-invoices.debhelper.log
+/debian/multiflexi-abraflexi-contract-invoices.substvars
+/debian/multiflexi-abraflexi-contract-invoices/
