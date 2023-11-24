@@ -8,7 +8,7 @@ use \Ease\Shared;
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2018-2023 Spoje.Net
  */
-define('EASE_APPNAME', 'Contracts2Invoices');
+define('EASE_APPNAME', 'AbraFlexi Contracts2Invoices');
 require_once '../vendor/autoload.php';
 
 Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'],'../.env');

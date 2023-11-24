@@ -15,3 +15,11 @@ Priority: optional
 Description: Trigger AbraFlexi contracts to invoice generator
  Commandline tool used to start generating invoices in AbraFlexi based on contracts
 
+Package: multiflexi-abraflexi-contract-invoices
+Depends: abraflexi-contract-invoices, multiflexi
+Architecture: all
+Section: office
+Priority: optional
+Description: Add AbraFlexi contracts to invoice generator to MultiFlexi
+ Easy way how to generate your invoices every day
+

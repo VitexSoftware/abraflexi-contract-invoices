@@ -13,25 +13,25 @@
             "type": "string",
             "description": "",
             "defval": "demo_de",
-            "required": 0
+            "required": true
         },
         "ABRAFLEXI_LOGIN": {
             "type": "string",
             "description": "AbraFlexi Login",
             "defval": "winstrom",
-            "required": 0
+            "required": true
         },
         "ABRAFLEXI_PASSWORD": {
             "type": "string",
             "description": "AbraFlexi password",
             "defval": "winstrom",
-            "required": 0
+            "required": true
         },
         "ABRAFLEXI_URL": {
             "type": "string",
             "description": "AbraFlexi Server URI",
             "defval": "https:\/\/demo.flexibee.eu:5434",
-            "required": 0
+            "required": true
         }
     },
     "multiflexi": "1.7.2.187"

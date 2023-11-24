@@ -1,3 +1,4 @@
+/.env/
 /debian/abraflexi-contract-invoices/
 /debian/abraflexi-contract-invoices.debhelper.log
 /debian/abraflexi-contract-invoices.substvars
