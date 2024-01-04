@@ -88,4 +88,6 @@ if ($contractList) {
             $contractor->addStatusMessage($message . ' ' . $notice, $status);
         }
     }
+} else {
+    $contractor->addStatusMessage(_('No Contract with AutoGenerate flag found'), 'debug');
 }
