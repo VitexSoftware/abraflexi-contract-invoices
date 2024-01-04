@@ -8,6 +8,7 @@
     "deploy": "apt install abraflexi-contract-invoices",
     "homepage": "https:\/\/github.com\/VitexSoftware\/abraflexi-contract-invoices",
     "requirements": "AbraFlexi",
+    "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
     "environment": {
         "ABRAFLEXI_COMPANY": {
             "type": "string",
@@ -34,5 +35,6 @@
             "required": true
         }
     },
-    "multiflexi": "1.7.2.187"
+    "multiflexi": "1.7.2.187",
+    "version": ""
 }

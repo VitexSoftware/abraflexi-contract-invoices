@@ -9,3 +9,12 @@ release:
 	debuild -i -us -uc -b
 	git commit -a -m "Release v$(nextversion)"
 	git tag -a $(nextversion) -m "version $(nextversion)"
+
+buildimage:
+	docker build -f Containerfile  -t vitexsoftware/abraflexi-contract-invoices:latest .
+
+buildx:
+	docker buildx build  -f Containerfile  . --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag vitexsoftware/abraflexi-contract-invoices:latest
+
+drun:
+	docker run  -f Containerfile --env-file .env vitexsoftware/abraflexi-contract-invoices:latest
