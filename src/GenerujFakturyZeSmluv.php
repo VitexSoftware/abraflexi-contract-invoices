@@ -6,7 +6,7 @@ use Ease\Shared;
  * Generate invoices from Contracts
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2018-2023 Spoje.Net
+ * @copyright  2018-2024 Spoje.Net
  */
 
 define('EASE_APPNAME', 'AbraFlexi Contracts2Invoices');
