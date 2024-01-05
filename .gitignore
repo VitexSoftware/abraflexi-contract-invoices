@@ -11,3 +11,4 @@
 /debian/multiflexi-abraflexi-contract-invoices.substvars
 /debian/multiflexi-abraflexi-contract-invoices/
 /nbproject/private/
+/.env
