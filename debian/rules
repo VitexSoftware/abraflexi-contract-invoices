@@ -8,4 +8,4 @@ override_dh_install:
 	dh_install
 	sed -i -e 's/..\/vendor/\/var\/lib\/composer\/abraflexi-contract-invoices/g' 	debian/abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/GenerujFakturyZeSmluv.php
 	sed -i -e 's/..\/.env//'                                  debian/abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/*.php
-	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//'`'"'  debian/multiflexi-abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/multiflexi/email_importer.multiflexi.app.json | sponge debian/multiflexi-abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/multiflexi/contract_to_invoices.multiflexi.app.json
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//'`'"'  abraflexi-contract-invoices/multiflexi/contract_to_invoices.multiflexi.app.json | sponge debian/multiflexi-ab~exi-contract-invoices/multiflexi/contract_to_invoices.multiflexi.app.json

@@ -1,5 +1,5 @@
 Source: abraflexi-contract-invoices
-Build-Depends: debhelper (>= 7.0.50~), jq, moreutils 
+Build-Depends: debhelper (>= 7.0.50~), jq, moreutils
 Standards-Version: 4.2.3
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
