@@ -68,7 +68,7 @@ if ($contractList) {
                         $generated = $invoicer->getColumnsFromAbraFlexi(
                             ['kod'],
                             [
-                                    'firma' => \AbraFlexi\RO::code($contractInfo['firma']),
+                                    'firma' => \AbraFlexi\Functions::code($contractInfo['firma']),
                                     'cisSml' => $contractInfo['kod'],
                                     'limit' => $howMany
                                 ]
