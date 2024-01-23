@@ -12,3 +12,4 @@
 /debian/multiflexi-abraflexi-contract-invoices/
 /nbproject/private/
 /.env
+/.php-cs-fixer.cache
