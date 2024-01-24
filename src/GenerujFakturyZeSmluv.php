@@ -27,11 +27,11 @@ $contractTypeList = $contractTypor->getColumnsFromAbraFlexi(
     'kod'
 );
 
-$contractTypeCond = empty($contractTypeList) ? 'autoGen eq true' : '(typSml in (' . implode(',', array_map($quote, array_map('\AbraFlexi\Functions::code', array_keys($contractTypeList)))) . ') OR autoGen eq true)';
-
 $quote = function (string $value) {
     return "'$value'";
 };
+
+$contractTypeCond = empty($contractTypeList) ? 'autoGen eq true' : '(typSml in (' . implode(',', array_map($quote, array_map('\AbraFlexi\Functions::code', array_keys($contractTypeList)))) . ') OR autoGen eq true)';
 
 $contractList = $contractor->getColumnsFromAbraFlexi(
     ['id', 'kod', 'nazev', 'firma'],
