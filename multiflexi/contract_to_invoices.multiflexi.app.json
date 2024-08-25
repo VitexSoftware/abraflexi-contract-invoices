@@ -9,6 +9,8 @@
     "homepage": "https:\/\/github.com\/VitexSoftware\/abraflexi-contract-invoices",
     "requirements": "AbraFlexi",
     "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
+    "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
+    "topics": "AbraFlexi,Contracts,Invoices",
     "environment": {
         "ABRAFLEXI_COMPANY": {
             "type": "string",

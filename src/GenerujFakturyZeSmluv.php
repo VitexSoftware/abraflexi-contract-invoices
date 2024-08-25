@@ -46,21 +46,21 @@ if ($contractList) {
         if ($contractor->generovaniFaktur()) {
             if (array_key_exists('messages', $contractor->lastResult)) {
                 if (
-                        strstr(
-                            $contractor->lastResult['messages']['message'],
-                            'Nebyla'
-                        )
+                    strstr(
+                        $contractor->lastResult['messages']['message'],
+                        'Nebyla'
+                    )
                 ) {
                     $contractor->addStatusMessage($message . ': ' . $contractor->lastResult['messages']['message'], 'debug');
                 } else {
                     if (
-                            strstr(
-                                $contractor->lastResult['messages']['message'],
-                                'faktur'
-                            ) && strstr(
-                                $contractor->lastResult['messages']['message'],
-                                ':'
-                            )
+                        strstr(
+                            $contractor->lastResult['messages']['message'],
+                            'faktur'
+                        ) && strstr(
+                            $contractor->lastResult['messages']['message'],
+                            ':'
+                        )
                     ) {
                         $hmr = explode(
                             ':',
