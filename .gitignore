@@ -13,3 +13,4 @@
 /nbproject/private/
 /.env
 /.php-cs-fixer.cache
+/.build/

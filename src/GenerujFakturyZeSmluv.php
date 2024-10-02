@@ -1,15 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the Contract Invoices for AbraFlexi.
+ *
+ * https://github.com/VitexSoftware/abraflexi-contract-invoices
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use Ease\Shared;
 
 /**
- * Generate invoices from Contracts
+ * Generate invoices from Contracts.
  *
  * @author     Vítězslav Dvořák <vitex@vitexsoftware.com>
  * @copyright  2018-2024 Spoje.Net
  */
+\define('EASE_APPNAME', 'AbraFlexi Contracts2Invoices');
 
-define('EASE_APPNAME', 'AbraFlexi Contracts2Invoices');
 require_once '../vendor/autoload.php';
 
 Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], '../.env');
@@ -17,6 +30,7 @@ Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLE
 $invoicer = new \AbraFlexi\FakturaVydana();
 $contractor = new \AbraFlexi\Smlouva();
 $contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
+
 if (\Ease\Shared::cfg('APP_DEBUG', false)) {
     $contractor->logBanner();
 }
@@ -24,82 +38,84 @@ if (\Ease\Shared::cfg('APP_DEBUG', false)) {
 $contractTypeList = $contractTypor->getColumnsFromAbraFlexi(
     ['kod'],
     ['autoGen' => true, 'limit' => 0],
-    'kod'
+    'kod',
 );
 
-$quote = function (string $value) {
-    return "'$value'";
+$quote = static function (string $value) {
+    return "'{$value}'";
 };
 
-$contractTypeCond = empty($contractTypeList) ? 'autoGen eq true' : '(typSml in (' . implode(',', array_map($quote, array_map('\AbraFlexi\Functions::code', array_keys($contractTypeList)))) . ') OR autoGen eq true)';
+$contractTypeCond = empty($contractTypeList) ? 'autoGen eq true' : '(typSml in ('.implode(',', array_map($quote, array_map('\AbraFlexi\Functions::code', array_keys($contractTypeList)))).') OR autoGen eq true)';
 
 $contractList = $contractor->getColumnsFromAbraFlexi(
     ['id', 'kod', 'nazev', 'firma'],
-    [$contractTypeCond, 'limit' => 0]
+    [$contractTypeCond, 'limit' => 0],
 );
+
 if ($contractList) {
     foreach ($contractList as $counter => $contractInfo) {
-        $message = ($counter + 1) . '/' . count($contractList) . ' ' . $contractInfo['nazev'] . ' ' . $contractInfo['firma']->showAs;
+        $message = ($counter + 1).'/'.\count($contractList).' '.$contractInfo['nazev'].' '.$contractInfo['firma']->showAs;
 
         $contractor->setMyKey($contractInfo['id']);
 
         if ($contractor->generovaniFaktur()) {
-            if (array_key_exists('messages', $contractor->lastResult)) {
+            if (\array_key_exists('messages', $contractor->lastResult)) {
                 if (
                     strstr(
                         $contractor->lastResult['messages']['message'],
-                        'Nebyla'
+                        'Nebyla',
                     )
                 ) {
-                    $contractor->addStatusMessage($message . ': ' . $contractor->lastResult['messages']['message'], 'debug');
+                    $contractor->addStatusMessage($message.': '.$contractor->lastResult['messages']['message'], 'debug');
                 } else {
                     if (
                         strstr(
                             $contractor->lastResult['messages']['message'],
-                            'faktur'
+                            'faktur',
                         ) && strstr(
                             $contractor->lastResult['messages']['message'],
-                            ':'
+                            ':',
                         )
                     ) {
                         $hmr = explode(
                             ':',
-                            $contractor->lastResult['messages']['message']
+                            $contractor->lastResult['messages']['message'],
                         );
-                        $howMany = intval(end($hmr));
+                        $howMany = (int) end($hmr);
                         $generated = $invoicer->getColumnsFromAbraFlexi(
                             ['kod'],
                             [
-                                    'firma' => \AbraFlexi\Functions::code($contractInfo['firma']),
-                                    'cisSml' => $contractInfo['kod'],
-                                    'limit' => $howMany
-                                ]
+                                'firma' => \AbraFlexi\Functions::code($contractInfo['firma']),
+                                'cisSml' => $contractInfo['kod'],
+                                'limit' => $howMany,
+                            ],
                         );
 
                         $invoices = [];
+
                         foreach ($generated as $result) {
                             $invoices[] = $result['kod'];
                         }
 
-                        $contractor->addStatusMessage($message . ' ' . implode(
+                        $contractor->addStatusMessage($message.' '.implode(
                             ',',
-                            $invoices
+                            $invoices,
                         ), 'success');
                     }
                 }
             } else {
-                if (array_key_exists('success', $contractor->lastResult) && ($contractor->lastResult['success'] == 'failed')) {
+                if (\array_key_exists('success', $contractor->lastResult) && ($contractor->lastResult['success'] === 'failed')) {
                     $contractor->addStatusMessage($message, 'warning');
                 }
             }
         } else {
-            $status = $contractor->lastResponseCode == 500 ? 'error' : 'warning';
+            $status = $contractor->lastResponseCode === 500 ? 'error' : 'warning';
             $notice = str_replace(
                 '"',
                 ' ',
-                trim(json_encode($contractor->getErrors()), '[{}]')
+                trim(json_encode($contractor->getErrors()), '[{}]'),
             );
-            $contractor->addStatusMessage($message . ' ' . $notice, $status);
+            $contractor->addStatusMessage($message.' '.$notice, $status);
         }
     }
 } else {
