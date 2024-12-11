@@ -3,7 +3,7 @@
     "description": "Trigger AbraFlexi's cotract to invoice generator",
     "type": "project",
     "require": {
-        "spojenet/flexibee": "dev-main"
+        "spojenet/flexibee": "^3.3"
     },
     "license": "MIT",
     "require-dev": {
