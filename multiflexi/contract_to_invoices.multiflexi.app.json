@@ -45,7 +45,7 @@
         "RESULT_FILE": {
             "type": "string",
             "description": "write output json data to",
-            "defval": "bank_import_report_{ACCOUNT_NUMBER}.json",
+            "defval": "contracts_{ABRAFLEXI_COMPANY}.json",
             "required": false
         },
         "ZABBIX_KEY": {

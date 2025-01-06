@@ -35,7 +35,7 @@ $invoicer = new \AbraFlexi\FakturaVydana();
 $contractor = new \AbraFlexi\Smlouva();
 $contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
 
-if (strtolower(\Ease\Shared::cfg('APP_DEBUG')) === 'true') {
+if (strtolower(Shared::cfg('APP_DEBUG','')) === 'true') {
     $contractor->logBanner(\Ease\Shared::appName().' v'.\Ease\Shared::appVersion());
 }
 
@@ -108,7 +108,7 @@ if ($contractList) {
                     }
                 }
 
-                $jsonOutput[$contractInfo['id']] = true;
+                $jsonOutput[$contractInfo['kod']] = $contractInfo['nazev'];
             } else {
                 if (\array_key_exists('success', $contractor->lastResult) && ($contractor->lastResult['success'] === 'failed')) {
                     $jsonOutput[$contractInfo['id']] = false;
