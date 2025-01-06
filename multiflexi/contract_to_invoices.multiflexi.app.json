@@ -12,6 +12,12 @@
     "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
     "topics": "AbraFlexi,Contracts,Invoices",
     "environment": {
+        "APP_DEBUG": {
+            "type": "checkbox",
+            "description": "Show debug messages",
+            "defval": "False",
+            "required": true
+        },
         "ABRAFLEXI_COMPANY": {
             "type": "string",
             "description": "",
@@ -35,7 +41,26 @@
             "description": "AbraFlexi Server URI",
             "defval": "https:\/\/demo.flexibee.eu:5434",
             "required": true
+        },
+        "RESULT_FILE": {
+            "type": "string",
+            "description": "write output json data to",
+            "defval": "bank_import_report_{ACCOUNT_NUMBER}.json",
+            "required": false
+        },
+        "ZABBIX_KEY": {
+            "type": "string",
+            "description": "Default name for Zabbix Item key name",
+            "defval": "Generated-Contracts-{ABRAFLEXI_COMPANY}",
+            "required": false
+        },
+        "EASE_LOGGER": {
+            "type": "string",
+            "description": "write log messages using",
+            "defval": "console|syslog",
+            "required": false
         }
+
     },
     "multiflexi": "1.7.2.187",
     "version": ""

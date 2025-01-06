@@ -19,20 +19,24 @@ use Ease\Shared;
  * Generate invoices from Contracts.
  *
  * @author     Vítězslav Dvořák <vitex@vitexsoftware.com>
- * @copyright  2018-2024 Spoje.Net
+ * @copyright  2018-2025 Spoje.Net
  */
 \define('EASE_APPNAME', 'AbraFlexi Contracts2Invoices');
 
 require_once '../vendor/autoload.php';
 
-Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], '../.env');
+$options = getopt('o::e::', ['output::', 'environment::']);
+$jsonOutput = [];
 
+Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], \array_key_exists('environment', $options) ? $options['environment'] : '../.env');
+
+$destination = \array_key_exists('output', $options) ? $options['output'] : \Ease\Shared::cfg('RESULT_FILE', 'php://stdout');
 $invoicer = new \AbraFlexi\FakturaVydana();
 $contractor = new \AbraFlexi\Smlouva();
 $contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
 
-if (\Ease\Shared::cfg('APP_DEBUG', false)) {
-    $contractor->logBanner();
+if (strtolower(\Ease\Shared::cfg('APP_DEBUG')) === 'true') {
+    $contractor->logBanner(\Ease\Shared::appName().' v'.\Ease\Shared::appVersion());
 }
 
 $contractTypeList = $contractTypor->getColumnsFromAbraFlexi(
@@ -103,8 +107,11 @@ if ($contractList) {
                         ), 'success');
                     }
                 }
+
+                $jsonOutput[$contractInfo['id']] = true;
             } else {
                 if (\array_key_exists('success', $contractor->lastResult) && ($contractor->lastResult['success'] === 'failed')) {
+                    $jsonOutput[$contractInfo['id']] = false;
                     $contractor->addStatusMessage($message, 'warning');
                 }
             }
@@ -121,3 +128,8 @@ if ($contractList) {
 } else {
     $contractor->addStatusMessage(_('No Contract with AutoGenerate flag found'), 'debug');
 }
+
+$written = file_put_contents($destination, json_encode($jsonOutput, \Ease\Shared::cfg('DEBUG') ? \JSON_PRETTY_PRINT : 0));
+$contractor->addStatusMessage(sprintf(_('Saving result to %s'), $destination), $written ? 'success' : 'error');
+
+exit($written ? 0 : 1);
