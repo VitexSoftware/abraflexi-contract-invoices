@@ -28,14 +28,17 @@ require_once '../vendor/autoload.php';
 $options = getopt('o::e::', ['output::', 'environment::']);
 $jsonOutput = [];
 
-Shared::init(['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'], \array_key_exists('environment', $options) ? $options['environment'] : '../.env');
+Shared::init(
+    ['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'],
+    \array_key_exists('environment', $options) ? $options['environment'] : (\array_key_exists('e', $options) ? $options['e'] : '../.env'),
+);
 
 $destination = \array_key_exists('output', $options) ? $options['output'] : \Ease\Shared::cfg('RESULT_FILE', 'php://stdout');
 $invoicer = new \AbraFlexi\FakturaVydana();
 $contractor = new \AbraFlexi\Smlouva();
 $contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
 
-if (strtolower(Shared::cfg('APP_DEBUG','')) === 'true') {
+if (strtolower(Shared::cfg('APP_DEBUG', '')) === 'true') {
     $contractor->logBanner(\Ease\Shared::appName().' v'.\Ease\Shared::appVersion());
 }
 
