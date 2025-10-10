@@ -1,67 +1,102 @@
 {
-    "image": "",
-    "name": "Contract to Invoices",
-    "description": "Trigger AbraFlexi contracts to generate invoices",
-    "executable": "abraflexi-contract-invoices",
-    "setup": "",
-    "cmdparams": "",
-    "deploy": "apt install abraflexi-contract-invoices",
-    "homepage": "https:\/\/github.com\/VitexSoftware\/abraflexi-contract-invoices",
-    "requirements": ["AbraFlexi"],
-    "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
+    "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/multiflexi.app.schema.json",
+    "schemaVersion": "3.0.0",
     "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
-    "topics": ["AbraFlexi", "Contracts", "Invoices"],
+    "name": {
+        "en": "Contract to Invoices",
+        "cs": "Contract to Invoices"
+    },
+    "description": {
+        "en": "Trigger AbraFlexi contracts to generate invoices",
+        "cs": "Trigger AbraFlexi contracts to generate invoices"
+    },
+    "version": "1.0.0",
+    "tags": [
+        "AbraFlexi",
+        "Contracts",
+        "Invoices"
+    ],
+    "homepage": "https://github.com/VitexSoftware/abraflexi-contract-invoices",
+    "image": "",
+    "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
+    "executable": "abraflexi-contract-invoices",
     "environment": {
         "APP_DEBUG": {
             "type": "checkbox",
-            "description": "Show debug messages",
+            "description": {
+                "en": "Show debug messages",
+                "cs": "Show debug messages"
+            },
             "defval": "False",
-            "required": true
+            "required": true,
+            "category": "Behavior"
         },
         "ABRAFLEXI_COMPANY": {
             "type": "string",
             "description": "",
             "defval": "demo_de",
-            "required": true
+            "required": true,
+            "category": "API"
         },
         "ABRAFLEXI_LOGIN": {
             "type": "string",
-            "description": "AbraFlexi Login",
+            "description": {
+                "en": "AbraFlexi Login",
+                "cs": "AbraFlexi Login"
+            },
             "defval": "winstrom",
-            "required": true
+            "required": true,
+            "category": "API"
         },
         "ABRAFLEXI_PASSWORD": {
-            "type": "string",
-            "description": "AbraFlexi password",
+            "type": "password",
+            "description": {
+                "en": "AbraFlexi password",
+                "cs": "AbraFlexi password"
+            },
             "defval": "winstrom",
-            "required": true
+            "required": true,
+            "category": "API"
         },
         "ABRAFLEXI_URL": {
             "type": "string",
-            "description": "AbraFlexi Server URI",
-            "defval": "https:\/\/demo.flexibee.eu:5434",
-            "required": true
+            "description": {
+                "en": "AbraFlexi Server URI",
+                "cs": "AbraFlexi Server URI"
+            },
+            "defval": "https://demo.flexibee.eu:5434",
+            "required": true,
+            "category": "API"
         },
         "RESULT_FILE": {
             "type": "string",
-            "description": "write output json data to",
+            "description": {
+                "en": "write output json data to",
+                "cs": "write output json data to"
+            },
             "defval": "contracts_{ABRAFLEXI_COMPANY}.json",
-            "required": false
+            "required": false,
+            "category": "Other"
         },
         "ZABBIX_KEY": {
             "type": "string",
-            "description": "Default name for Zabbix Item key name",
+            "description": {
+                "en": "Default name for Zabbix Item key name",
+                "cs": "Default name for Zabbix Item key name"
+            },
             "defval": "Generated-Contracts-{ABRAFLEXI_COMPANY}",
-            "required": false
+            "required": false,
+            "category": "Other"
         },
         "EASE_LOGGER": {
             "type": "string",
-            "description": "write log messages using",
+            "description": {
+                "en": "write log messages using",
+                "cs": "write log messages using"
+            },
             "defval": "console|syslog",
-            "required": false
+            "required": false,
+            "category": "Behavior"
         }
-
-    },
-    "multiflexi": "1.7.2.187",
-    "version": "1.0.0"
+    }
 }
