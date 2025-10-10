@@ -17,7 +17,6 @@
         "Invoices"
     ],
     "homepage": "https://github.com/VitexSoftware/abraflexi-contract-invoices",
-    "image": "",
     "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
     "executable": "abraflexi-contract-invoices",
     "environment": {
