@@ -1,101 +1,101 @@
 {
-    "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/multiflexi.app.schema.json",
-    "schemaVersion": "3.0.0",
-    "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
-    "name": {
-        "en": "Contract to Invoices",
-        "cs": "Contract to Invoices"
+  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/multiflexi.app.schema.json",
+  "schemaVersion": "3.2.1",
+  "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
+  "name": {
+    "en": "Contract to Invoices",
+    "cs": "Contract to Invoices"
+  },
+  "description": {
+    "en": "Generate AbraFlexi invoices from contracts.",
+    "cs": "Generuj faktury z smluv v AbraFlexi."
+  },
+  "version": "1.0.0",
+  "tags": [
+    "AbraFlexi",
+    "Contracts",
+    "Invoices"
+  ],
+  "homepage": "https://github.com/VitexSoftware/abraflexi-contract-invoices",
+  "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
+  "executable": "abraflexi-contract-invoices",
+  "environment": {
+    "APP_DEBUG": {
+      "type": "bool",
+      "description": {
+        "en": "Show debug messages",
+        "cs": "Zobrazit ladicí zprávy"
+      },
+      "defval": false,
+      "required": true,
+      "category": "Behavior"
     },
-    "description": {
-        "en": "Trigger AbraFlexi contracts to generate invoices",
-        "cs": "Trigger AbraFlexi contracts to generate invoices"
+    "ABRAFLEXI_COMPANY": {
+      "type": "string",
+      "description": "",
+      "defval": "demo_de",
+      "required": true,
+      "category": "API"
     },
-    "version": "1.0.0",
-    "tags": [
-        "AbraFlexi",
-        "Contracts",
-        "Invoices"
-    ],
-    "homepage": "https://github.com/VitexSoftware/abraflexi-contract-invoices",
-    "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
-    "executable": "abraflexi-contract-invoices",
-    "environment": {
-        "APP_DEBUG": {
-            "type": "checkbox",
-            "description": {
-                "en": "Show debug messages",
-                "cs": "Show debug messages"
-            },
-            "defval": "False",
-            "required": true,
-            "category": "Behavior"
-        },
-        "ABRAFLEXI_COMPANY": {
-            "type": "string",
-            "description": "",
-            "defval": "demo_de",
-            "required": true,
-            "category": "API"
-        },
-        "ABRAFLEXI_LOGIN": {
-            "type": "string",
-            "description": {
-                "en": "AbraFlexi Login",
-                "cs": "AbraFlexi Login"
-            },
-            "defval": "winstrom",
-            "required": true,
-            "category": "API"
-        },
-        "ABRAFLEXI_PASSWORD": {
-            "type": "password",
-            "description": {
-                "en": "AbraFlexi password",
-                "cs": "AbraFlexi password"
-            },
-            "defval": "winstrom",
-            "required": true,
-            "category": "API"
-        },
-        "ABRAFLEXI_URL": {
-            "type": "string",
-            "description": {
-                "en": "AbraFlexi Server URI",
-                "cs": "AbraFlexi Server URI"
-            },
-            "defval": "https://demo.flexibee.eu:5434",
-            "required": true,
-            "category": "API"
-        },
-        "RESULT_FILE": {
-            "type": "string",
-            "description": {
-                "en": "write output json data to",
-                "cs": "write output json data to"
-            },
-            "defval": "contracts_{ABRAFLEXI_COMPANY}.json",
-            "required": false,
-            "category": "Other"
-        },
-        "ZABBIX_KEY": {
-            "type": "string",
-            "description": {
-                "en": "Default name for Zabbix Item key name",
-                "cs": "Default name for Zabbix Item key name"
-            },
-            "defval": "Generated-Contracts-{ABRAFLEXI_COMPANY}",
-            "required": false,
-            "category": "Other"
-        },
-        "EASE_LOGGER": {
-            "type": "string",
-            "description": {
-                "en": "write log messages using",
-                "cs": "write log messages using"
-            },
-            "defval": "console|syslog",
-            "required": false,
-            "category": "Behavior"
-        }
+    "ABRAFLEXI_LOGIN": {
+      "type": "string",
+      "description": {
+        "en": "AbraFlexi Login",
+        "cs": "AbraFlexi Přihlašovací jméno"
+      },
+      "defval": "winstrom",
+      "required": true,
+      "category": "API"
+    },
+    "ABRAFLEXI_PASSWORD": {
+      "type": "password",
+      "description": {
+        "en": "AbraFlexi password",
+        "cs": "AbraFlexi heslo"
+      },
+      "defval": "winstrom",
+      "required": true,
+      "category": "API"
+    },
+    "ABRAFLEXI_URL": {
+      "type": "string",
+      "description": {
+        "en": "AbraFlexi Server URI",
+        "cs": "AbraFlexi Server URI"
+      },
+      "defval": "https://demo.flexibee.eu:5434",
+      "required": true,
+      "category": "API"
+    },
+    "RESULT_FILE": {
+      "type": "string",
+      "description": {
+        "en": "write output json data to",
+        "cs": "zapsat výstupní json data do"
+      },
+      "defval": "contracts_{ABRAFLEXI_COMPANY}.json",
+      "required": false,
+      "category": "Other"
+    },
+    "ZABBIX_KEY": {
+      "type": "string",
+      "description": {
+        "en": "Default name for Zabbix Item key name",
+        "cs": "Výchozí název pro Zabbix Item key name"
+      },
+      "defval": "Generated-Contracts-{ABRAFLEXI_COMPANY}",
+      "required": false,
+      "category": "Other"
+    },
+    "EASE_LOGGER": {
+      "type": "string",
+      "description": {
+        "en": "write log messages using",
+        "cs": "zapisovat log zprávy pomocí"
+      },
+      "defval": "console|syslog",
+      "required": false,
+      "category": "Behavior"
     }
+  }
 }

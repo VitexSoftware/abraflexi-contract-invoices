@@ -1,13 +1,14 @@
-# abraflexi-contract-invoices
+# AbraFlexi Contract to Invoices / Liabilities / Receivables
 
-![app logo](abraflexi-contract-invoices.svg?raw=true)
+<p align="center">
+ <img src="abraflexi-contract-invoices.svg?raw=true" alt="Invoices" height="100"/>
+ <img src="abraflexi-contract-liabilities.svg?raw=true" alt="Liabilities" height="100"/>
+ <img src="abraflexi-contract-receivables.svg?raw=true" alt="Receivables" height="100"/>
+</p>
 
-Trigger AbraFlexi contracts to generate invoices
+Trigger AbraFlexi contracts to generate Liabilities, Receivables or Invoices.
 
-
-
-Installation
-------------
+## Installation
 
 ```shell
 sudo apt install lsb-release wget
@@ -17,16 +18,14 @@ sudo apt update
 sudo apt install abraflexi-contract-invoices
 ```
 
-See also https://github.com/VitexSoftware/MultiAbraFlexiSetup
+See also <https://github.com/VitexSoftware/MultiAbraFlexiSetup>
 
-
-Configuration
--------------
+## Configuration
 
 You can put configuration into .env file in current directory
 Command try to use standard configuration keys:
 
-```
+```env
 EASE_LOGGER=console|syslog
 
 ABRAFLEXI_LOGIN=winstrom
@@ -35,12 +34,11 @@ ABRAFLEXI_URL=https://demo.abraflexi.eu:5434
 ABRAFLEXI_COMPANY=demo_de
 ```
 
-We use environment variables as described here: https://github.com/Spoje-NET/php-abraflexi
+We use environment variables as described here: <https://github.com/Spoje-NET/php-abraflexi>
 
-MultiFlexi
-----------
+## MultiFlexi
 
 **AbraFlexi Contract to Invoices** is ready for run as [MultiFlexi](https://multiflexi.eu) application.
 See the full list of ready-to-run applications within the MultiFlexi platform on the [application list page](https://www.multiflexi.eu/apps.php).
 
-[![MultiFlexi App](https://github.com/VitexSoftware/MultiFlexi/blob/main/doc/multiflexi-app.svg)](https://www.multiflexi.eu/apps.php)
+[![MultiFlexi App](https://github.com/VitexSoftware/MultiFlexi/blob/main/doc/multiflexi-app.svg?raw=true)](https://www.multiflexi.eu/apps.php)
