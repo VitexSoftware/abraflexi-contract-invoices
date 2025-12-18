@@ -36,7 +36,7 @@ Shared::init(
 $destination = \array_key_exists('output', $options) ? $options['output'] : \Ease\Shared::cfg('RESULT_FILE', 'php://stdout');
 $invoicer = new \AbraFlexi\FakturaVydana();
 $contractor = new \AbraFlexi\Smlouva();
-$contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
+$contractTypor = new \AbraFlexi\TypSmlouvy();
 
 if (strtolower(Shared::cfg('APP_DEBUG', '')) === 'true') {
     $contractor->logBanner(\Ease\Shared::appName().' v'.\Ease\Shared::appVersion());

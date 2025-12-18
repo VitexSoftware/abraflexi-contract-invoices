@@ -3,7 +3,8 @@
     "description": "Trigger AbraFlexi's cotract to invoice generator",
     "type": "project",
     "require": {
-        "spojenet/flexibee": "^3.6"
+        "spojenet/flexibee": "^3.6",
+        "vitexsoftware/abraflexi-bricks": "^1.4"
     },
     "license": "MIT",
     "require-dev": {
@@ -19,6 +20,11 @@
             "email": "info@vitexsoftware.cz"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "\\AbraFlexi\\Contracts\\": "src/AbraFlexi/Contracts/"
+        }
+    },
     "minimum-stability": "dev",
     "config": {
         "allow-plugins": {

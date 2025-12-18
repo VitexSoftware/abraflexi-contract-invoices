@@ -19,6 +19,10 @@ declare(strict_types=1);
  * @author     Vítězslav Dvořák <vitex@vitexsoftware.com>
  * @copyright  2018-2025 Spoje.Net
  */
+
+use AbraFlexi\Contracts\ZalohyZeSmluvDoZavazku;
+use Ease\Shared;
+
 \define('EASE_APPNAME', 'AbraFlexi Contracts2Liabilities');
 
 require_once '../vendor/autoload.php';
@@ -31,18 +35,15 @@ Shared::init(
     \array_key_exists('environment', $options) ? $options['environment'] : (\array_key_exists('e', $options) ? $options['e'] : '../.env'),
 );
 
-$destination = \array_key_exists('output', $options) ? $options['output'] : \Ease\Shared::cfg('RESULT_FILE', 'php://stdout');
-$invoicer = new \AbraFlexi\FakturaVydana();
-$contractor = new \AbraFlexi\Smlouva();
-$contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
+$destination = \array_key_exists('output', $options) ? $options['output'] : Shared::cfg('RESULT_FILE', 'php://stdout');
+
+$contractor = new ZalohyZeSmluvDoZavazku();
 
 if (strtolower(Shared::cfg('APP_DEBUG', '')) === 'true') {
-    $contractor->logBanner(\Ease\Shared::appName().' v'.\Ease\Shared::appVersion());
+    $contractor->logBanner(Shared::appName().' v'.Shared::appVersion());
 }
 
-$worker = new ZalohyZeSmluvDoZavazku();
-// $worker->pripravSmlouvy();
-$worker->nactiZalohoveFaktury();
-$worker->zkonvertujZalohyNaZavazky();
-$worker->ulozZavazky();
-$worker->uklidZpracovaneZalohy();
+$contractor->nactiZalohoveFaktury();
+$contractor->zkonvertujZalohyNaZavazky();
+$contractor->ulozZavazky();
+$contractor->uklidZpracovaneZalohy();

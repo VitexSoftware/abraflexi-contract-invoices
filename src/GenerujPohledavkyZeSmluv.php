@@ -13,6 +13,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+use Ease\Shared;
+
 /**
  * Generate invoices from Contracts.
  *
@@ -32,18 +34,14 @@ Shared::init(
 );
 
 $destination = \array_key_exists('output', $options) ? $options['output'] : \Ease\Shared::cfg('RESULT_FILE', 'php://stdout');
-$invoicer = new \AbraFlexi\FakturaVydana();
-$contractor = new \AbraFlexi\Smlouva();
-$contractTypor = new \AbraFlexi\RO(null, ['evidence' => 'typ-smlouvy']);
 
 if (strtolower(Shared::cfg('APP_DEBUG', '')) === 'true') {
     $contractor->logBanner(\Ease\Shared::appName().' v'.\Ease\Shared::appVersion());
 }
 
-
-$worker = new Poh
+$contractor = new \AbraFlexi\Contracts\ZalohyZeSmluvDoPohledavek();
 // $worker->pripravSmlouvy();
-$worker->nactiZalohoveFaktury();
-$worker->zkonvertujZalohyNaZavazky();
-$worker->ulozZavazky();
-$worker->uklidZpracovaneZalohy();
+$contractor->nactiZalohoveFaktury();
+$contractor->zkonvertujZalohyNaZavazky();
+$contractor->ulozZavazky();
+$contractor->uklidZpracovaneZalohy();
