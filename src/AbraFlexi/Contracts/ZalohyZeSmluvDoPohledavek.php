@@ -29,7 +29,6 @@ namespace AbraFlexi\Contracts;
 class ZalohyZeSmluvDoPohledavek extends \AbraFlexi\Smlouva
 {
     public array $zalohy = [];
-
     public array $pohledavky = [];
 
     /**
