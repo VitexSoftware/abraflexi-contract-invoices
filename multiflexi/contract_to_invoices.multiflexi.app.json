@@ -97,5 +97,23 @@
       "required": false,
       "category": "Behavior"
     }
+  },
+  "exitcodes": {
+    "0": {
+      "en": "Success",
+      "cs": "Úspěch"
+    },
+    "1": {
+      "en": "General error or failure",
+      "cs": "Obecná chyba nebo selhání"
+    },
+    "2": {
+      "en": "Invalid configuration or missing required environment variable",
+      "cs": "Neplatná konfigurace nebo chybějící povinná proměnná prostředí"
+    },
+    "3": {
+      "en": "AbraFlexi API error",
+      "cs": "Chyba API AbraFlexi"
+    }
   }
 }
