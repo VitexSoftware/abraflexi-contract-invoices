@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/multiflexi.app.schema.json",
+  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/application.json",
   "schemaVersion": "3.2.1",
   "uuid": "fecc7f19-a7a7-4e57-ba09-cafcfeb80829",
   "name": {
@@ -10,7 +10,9 @@
     "en": "Generate AbraFlexi liabilities from contract advance payments.",
     "cs": "Generuj závazky ze zálohových faktur ve smlouvách AbraFlexi."
   },
-  "version": "1.1.0",
+  "requirements": [
+    "AbraFlexi"
+  ],
   "tags": [
     "AbraFlexi",
     "Contracts",

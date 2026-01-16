@@ -1,11 +1,14 @@
 {
-  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/multiflexi.app.schema.json",
+  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/application.json",
   "schemaVersion": "3.2.1",
   "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
   "name": {
     "en": "Contract to Invoices",
     "cs": "Contract to Invoices"
   },
+  "requirements": [
+    "AbraFlexi"
+  ],
   "description": {
     "en": "Generate AbraFlexi invoices from contracts.",
     "cs": "Generuj faktury z smluv v AbraFlexi."
