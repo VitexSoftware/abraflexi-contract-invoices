@@ -30,6 +30,10 @@
     {
       "type": "path",
       "url": "/usr/share/php/AbraFlexi"
+    },
+    {
+      "type": "path",
+      "url": "/usr/share/php/AbraFlexiBricks"
     }
   ]
 }
