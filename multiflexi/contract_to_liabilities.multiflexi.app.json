@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/application.json",
   "schemaVersion": "3.2.1",
+  "version": "1.2.3",
   "uuid": "fecc7f19-a7a7-4e57-ba09-cafcfeb80829",
   "name": {
     "en": "Contract to Liabilities",
@@ -72,6 +73,27 @@
       "defval": "https://demo.flexibee.eu:5434",
       "required": true,
       "category": "API"
+    },
+    "LIABILITY_INVOICE_TYPE": {
+      "type": "string",
+      "description": {
+        "cs": "Typ faktury ze které se vytvoří závazek",
+        "en": "Type of invoice to create liability from"
+      },
+      "hint": "ZAVAZEK",
+      "required": false,
+      "category": "Behavior"
+    },
+    "LIABILITY_DOCUMENT_TYPE": {
+      "type": "string",
+      "description": {
+        "cs": "vytvoří závazek toho typu dokumentu",
+        "en": "create liability of document type"
+      },
+      "hint": "OST. ZÁVAZKY",
+      "required": false,
+      "category": "Behavior"
+            
     },
     "RESULT_FILE": {
       "type": "string",
