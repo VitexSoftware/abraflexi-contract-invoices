@@ -31,7 +31,7 @@ $options = getopt('o::e::', ['output::', 'environment::']);
 $jsonOutput = [];
 
 Shared::init(
-    ['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY'],
+    ['ABRAFLEXI_URL', 'ABRAFLEXI_LOGIN', 'ABRAFLEXI_PASSWORD', 'ABRAFLEXI_COMPANY', 'LIABILITY_INVOICE_TYPE', 'LIABILITY_DOCUMENT_TYPE'],
     \array_key_exists('environment', $options) ? $options['environment'] : (\array_key_exists('e', $options) ? $options['e'] : '../.env'),
 );
 

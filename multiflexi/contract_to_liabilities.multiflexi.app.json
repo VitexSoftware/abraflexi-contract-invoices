@@ -91,7 +91,7 @@
         "en": "create liability of document type"
       },
       "hint": "OST. ZÁVAZKY",
-      "required": false,
+      "required": true,
       "category": "Behavior"
             
     },
@@ -102,7 +102,7 @@
         "cs": "zapsat výstupní json data do"
       },
       "defval": "liabilities_{ABRAFLEXI_COMPANY}.json",
-      "required": false,
+      "required": true,
       "category": "Other"
     },
     "EASE_LOGGER": {

@@ -50,7 +50,7 @@ class ZalohyZeSmluvDoZavazku extends \AbraFlexi\DodavatelskaSmlouva
     {
         $this->zalohy = (array) $this->invoicer->getColumnsFromAbraFlexi(
             '*',
-            ['typDokl' => \AbraFlexi\Code::ensure(\Ease\Shared::cfg('LIABILITY_INVOICE_TYPE', 'ZAVAZEK')), 'limit' => 0, 'relations' => 'polozkyDokladu', 'smlouva' => 'is not empty'],
+            ['typDokl' => \AbraFlexi\Code::ensure(\Ease\Shared::cfg('LIABILITY_INVOICE_TYPE')), 'limit' => 0, 'relations' => 'polozkyDokladu', 'smlouva' => 'is not empty'],
             'id',
         );
     }
@@ -123,7 +123,7 @@ class ZalohyZeSmluvDoZavazku extends \AbraFlexi\DodavatelskaSmlouva
      */
     public function convert($zaloha)
     {
-        $engine = new \AbraFlexi\Bricks\Convertor($zaloha, new \AbraFlexi\Zavazek(['typDokl' => \AbraFlexi\Code::ensure(\Ease\Shared::cfg('LIABILITY_DOCUMENT_TYPE', 'OST. ZÁVAZKY'))]));
+        $engine = new \AbraFlexi\Bricks\Convertor($zaloha, new \AbraFlexi\Zavazek(['typDokl' => \AbraFlexi\Code::ensure(\Ease\Shared::cfg('LIABILITY_DOCUMENT_TYPE'))]));
 
         return $engine->conversion();
     }
