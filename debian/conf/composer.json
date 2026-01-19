@@ -14,7 +14,13 @@
   },
   "require": {
     "deb/ease-core": "*",
-    "deb/abraflexi": "*"
+    "deb/abraflexi": "*",
+    "deb/abraflexi-bricks": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "\\AbraFlexi\\Contracts\\": "./AbraFlexi/Contracts/"
+    }
   },
   "repositories": [
     {
