@@ -1,3 +1,9 @@
+abraflexi-contract-invoices (1.1.1) UNRELEASED; urgency=medium
+
+  * liabilities deb
+
+ -- vitex <info@vitexsoftware.cz>  Mon, 19 Jan 2026 18:35:40 +0100
+
 abraflexi-contract-invoices (1.1.0) unstable; urgency=medium
 
   [ vitex ]
@@ -11,4 +17,4 @@ abraflexi-contract-invoices (1.1.0) unstable; urgency=medium
   * Dockerized
   * Handle Document Type for contract
 
- -- vitex <info@vitexsoftware.cz>  Wed, 11 Dec 2024 01:09:39 +0100
+ -- vitex <info@vitexsoftware.cz>  Mon, 19 Jan 2026 18:35:21 +0100
