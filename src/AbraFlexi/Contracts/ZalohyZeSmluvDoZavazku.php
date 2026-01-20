@@ -127,4 +127,9 @@ class ZalohyZeSmluvDoZavazku extends \AbraFlexi\DodavatelskaSmlouva
 
         return $engine->conversion();
     }
+    
+    public function report(): array
+    {
+        return [];
+    }
 }

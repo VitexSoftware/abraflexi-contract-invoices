@@ -1022,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "1a0b233773cfa69595425276e26266c1d9b8cec7"
+                "reference": "334ba26777035be25cb35d3629c4624a0ee8f692"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/1a0b233773cfa69595425276e26266c1d9b8cec7",
-                "reference": "1a0b233773cfa69595425276e26266c1d9b8cec7",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/334ba26777035be25cb35d3629c4624a0ee8f692",
+                "reference": "334ba26777035be25cb35d3629c4624a0ee8f692",
                 "shasum": ""
             },
             "require": {
@@ -1097,7 +1097,7 @@
                 "security": "https://github.com/ergebnis/json-normalizer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-normalizer"
             },
-            "time": "2026-01-01T00:20:41+00:00"
+            "time": "2026-01-19T21:32:01+00:00"
         },
         {
             "name": "ergebnis/json-pointer",
@@ -1105,12 +1105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-pointer.git",
-                "reference": "8adf6093615f2dab1fa37cbbd64502d69b2e5748"
+                "reference": "68435e154787e1e1144f4bcfd07fbbbe50c7c468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/8adf6093615f2dab1fa37cbbd64502d69b2e5748",
-                "reference": "8adf6093615f2dab1fa37cbbd64502d69b2e5748",
+                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/68435e154787e1e1144f4bcfd07fbbbe50c7c468",
+                "reference": "68435e154787e1e1144f4bcfd07fbbbe50c7c468",
                 "shasum": ""
             },
             "require": {
@@ -1171,7 +1171,7 @@
                 "security": "https://github.com/ergebnis/json-pointer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-pointer"
             },
-            "time": "2026-01-01T00:15:04+00:00"
+            "time": "2026-01-19T17:32:15+00:00"
         },
         {
             "name": "ergebnis/json-printer",
@@ -2177,8 +2177,8 @@
             "version": "2.1.x-dev",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0c81ad9a26f7e5e1293270bd1d4e4b4cc651ccc6",
-                "reference": "0c81ad9a26f7e5e1293270bd1d4e4b4cc651ccc6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/070ba754a949fcade788e16e8dc5a5935b7cf2ee",
+                "reference": "070ba754a949fcade788e16e8dc5a5935b7cf2ee",
                 "shasum": ""
             },
             "require": {
@@ -2224,7 +2224,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-19T10:03:34+00:00"
+            "time": "2026-01-19T19:52:16+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

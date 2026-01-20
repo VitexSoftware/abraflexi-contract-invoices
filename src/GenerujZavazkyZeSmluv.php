@@ -47,3 +47,10 @@ $contractor->nactiZalohoveFaktury();
 $contractor->zkonvertujZalohyNaZavazky();
 $contractor->ulozZavazky();
 $contractor->uklidZpracovaneZalohy();
+
+$jsonOutput = $contractor->report();
+
+$written = file_put_contents($destination, json_encode($jsonOutput, \Ease\Shared::cfg('DEBUG') ? \JSON_PRETTY_PRINT : 0));
+$contractor->addStatusMessage(sprintf(_('Saving result to %s'), $destination), $written ? 'success' : 'error');
+
+exit($written ? 0 : 1);
