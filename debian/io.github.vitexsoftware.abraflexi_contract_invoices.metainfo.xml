@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>io.github.vitexsoftware.abraflexi_contract_invoices</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>abraflexi-contract-invoices</name>
+  <summary>Trigger AbraFlexi contracts to invoice generator</summary>
+  <description>
+    <p>
+      Commandline tool used to start generating invoices in AbraFlexi based on contracts Easy way how to generate your invoices every day
+    </p>
+  </description>
+  <categories>
+    <category>System</category>
+    <category>ConsoleOnly</category>
+  </categories>
+  <url type="homepage">https://github.com/VitexSoftware/abraflexi-contract-invoices</url>
+  <url type="bugtracker">https://github.com/VitexSoftware/abraflexi-contract-invoices/issues</url>
+  <developer id="cz.vitexsoftware">
+    <name>VitexSoftware</name>
+  </developer>
+  <provides>
+    <binary>abraflexi-contract-invoices</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+</component>
