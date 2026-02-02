@@ -15,8 +15,8 @@ declare(strict_types=1);
 
 namespace AbraFlexi\Contracts\Tests;
 
-use AbraFlexi\Contracts\ZalohyZeSmluvDoZavazku;
 use AbraFlexi\Contracts\ZalohyZeSmluvDoPohledavek;
+use AbraFlexi\Contracts\ZalohyZeSmluvDoZavazku;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -42,7 +42,7 @@ class SchemaReportTest extends TestCase
         $this->assertArrayHasKey('producer', $report);
         $this->assertArrayHasKey('status', $report);
         $this->assertArrayHasKey('timestamp', $report);
-        
+
         // Test optional fields that our implementation includes
         $this->assertArrayHasKey('message', $report);
         $this->assertArrayHasKey('artifacts', $report);
@@ -65,7 +65,7 @@ class SchemaReportTest extends TestCase
         $this->assertIsString($report['timestamp']);
         $this->assertMatchesRegularExpression(
             '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/',
-            $report['timestamp']
+            $report['timestamp'],
         );
 
         // Test message is string
@@ -90,7 +90,7 @@ class SchemaReportTest extends TestCase
         $this->assertArrayHasKey('producer', $report);
         $this->assertArrayHasKey('status', $report);
         $this->assertArrayHasKey('timestamp', $report);
-        
+
         // Test optional fields that our implementation includes
         $this->assertArrayHasKey('message', $report);
         $this->assertArrayHasKey('artifacts', $report);
@@ -113,7 +113,7 @@ class SchemaReportTest extends TestCase
         $this->assertIsString($report['timestamp']);
         $this->assertMatchesRegularExpression(
             '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/',
-            $report['timestamp']
+            $report['timestamp'],
         );
 
         // Test message is string
@@ -154,11 +154,11 @@ class SchemaReportTest extends TestCase
         // Test timestamp format conforms to ISO8601 with timezone
         $this->assertMatchesRegularExpression(
             '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/',
-            $liabilitiesReport['timestamp']
+            $liabilitiesReport['timestamp'],
         );
         $this->assertMatchesRegularExpression(
             '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/',
-            $receivablesReport['timestamp']
+            $receivablesReport['timestamp'],
         );
     }
 
@@ -169,11 +169,11 @@ class SchemaReportTest extends TestCase
 
         // Test that metrics contain numeric values
         foreach ($liabilitiesReport['metrics'] as $key => $value) {
-            $this->assertTrue(is_numeric($value), "Metric '{$key}' should be numeric");
+            $this->assertIsNumeric($value, "Metric '{$key}' should be numeric");
         }
 
         foreach ($receivablesReport['metrics'] as $key => $value) {
-            $this->assertTrue(is_numeric($value), "Metric '{$key}' should be numeric");
+            $this->assertIsNumeric($value, "Metric '{$key}' should be numeric");
         }
     }
 }

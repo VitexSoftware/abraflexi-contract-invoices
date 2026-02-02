@@ -24,26 +24,67 @@ class JsonOutputIntegrationTest extends TestCase
 {
     public function testInvoiceScriptOutputStructure(): void
     {
-        $output = $this->generateTestInvoiceReport();
-        
+        $output = self::generateTestInvoiceReport();
+
         $this->validateSchemaCompliance($output, 'AbraFlexi Contracts2Invoices');
     }
 
     public function testLiabilityScriptOutputStructure(): void
     {
-        $output = $this->generateTestLiabilityReport();
-        
+        $output = self::generateTestLiabilityReport();
+
         $this->validateSchemaCompliance($output, 'AbraFlexi Contracts2Liabilities');
     }
 
     public function testReceivableScriptOutputStructure(): void
     {
-        $output = $this->generateTestReceivableReport();
-        
+        $output = self::generateTestReceivableReport();
+
         $this->validateSchemaCompliance($output, 'AbraFlexi Contracts2Receivables');
     }
 
-    private function generateTestInvoiceReport(): array
+    public function testErrorStatusHandling(): void
+    {
+        $errorReport = [
+            'producer' => 'AbraFlexi Contracts2Invoices',
+            'status' => 'error',
+            'timestamp' => (new \DateTime())->format('c'),
+            'message' => 'Invoice generation failed: Connection timeout',
+            'artifacts' => [
+                'invoices' => [],
+            ],
+            'metrics' => [
+                'processed_contracts' => 5,
+                'created_invoices' => 0,
+                'failed_contracts' => 5,
+            ],
+        ];
+
+        $this->validateSchemaCompliance($errorReport, 'AbraFlexi Contracts2Invoices');
+        $this->assertEquals('error', $errorReport['status']);
+    }
+
+    public function testWarningStatusHandling(): void
+    {
+        $warningReport = [
+            'producer' => 'AbraFlexi Contracts2Liabilities',
+            'status' => 'warning',
+            'timestamp' => (new \DateTime())->format('c'),
+            'message' => 'Liabilities generation completed with warnings',
+            'artifacts' => [
+                'liabilities' => [1, 2],
+            ],
+            'metrics' => [
+                'processed_advances' => 5,
+                'created_liabilities' => 2,
+            ],
+        ];
+
+        $this->validateSchemaCompliance($warningReport, 'AbraFlexi Contracts2Liabilities');
+        $this->assertEquals('warning', $warningReport['status']);
+    }
+
+    private static function generateTestInvoiceReport(): array
     {
         // Simulate the invoice generation output structure
         return [
@@ -54,18 +95,18 @@ class JsonOutputIntegrationTest extends TestCase
             'artifacts' => [
                 'invoices' => [
                     'CONTRACT001' => 'Test Contract 1',
-                    'CONTRACT002' => 'Test Contract 2'
-                ]
+                    'CONTRACT002' => 'Test Contract 2',
+                ],
             ],
             'metrics' => [
                 'processed_contracts' => 2,
                 'created_invoices' => 2,
-                'failed_contracts' => 0
-            ]
+                'failed_contracts' => 0,
+            ],
         ];
     }
 
-    private function generateTestLiabilityReport(): array
+    private static function generateTestLiabilityReport(): array
     {
         // Simulate the liability generation output structure
         return [
@@ -74,16 +115,16 @@ class JsonOutputIntegrationTest extends TestCase
             'timestamp' => (new \DateTime())->format('c'),
             'message' => 'Liabilities generation completed',
             'artifacts' => [
-                'liabilities' => []
+                'liabilities' => [],
             ],
             'metrics' => [
                 'processed_advances' => 0,
-                'created_liabilities' => 0
-            ]
+                'created_liabilities' => 0,
+            ],
         ];
     }
 
-    private function generateTestReceivableReport(): array
+    private static function generateTestReceivableReport(): array
     {
         // Simulate the receivable generation output structure
         return [
@@ -92,12 +133,12 @@ class JsonOutputIntegrationTest extends TestCase
             'timestamp' => (new \DateTime())->format('c'),
             'message' => 'Receivables generation completed',
             'artifacts' => [
-                'receivables' => []
+                'receivables' => [],
             ],
             'metrics' => [
                 'processed_advances' => 0,
-                'created_receivables' => 0
-            ]
+                'created_receivables' => 0,
+            ],
         ];
     }
 
@@ -117,7 +158,7 @@ class JsonOutputIntegrationTest extends TestCase
         // Test timestamp format (ISO8601)
         $this->assertMatchesRegularExpression(
             '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/',
-            $output['timestamp']
+            $output['timestamp'],
         );
 
         // Test optional fields that we include
@@ -131,58 +172,18 @@ class JsonOutputIntegrationTest extends TestCase
 
         if (isset($output['metrics'])) {
             $this->assertIsArray($output['metrics']);
+
             // All metrics should be numeric
             foreach ($output['metrics'] as $key => $value) {
-                $this->assertTrue(is_numeric($value), "Metric '{$key}' should be numeric");
+                $this->assertIsNumeric($value, "Metric '{$key}' should be numeric");
             }
         }
 
         // Test JSON serialization
         $json = json_encode($output);
         $this->assertJson($json);
-        
+
         $decoded = json_decode($json, true);
         $this->assertEquals($output, $decoded);
-    }
-
-    public function testErrorStatusHandling(): void
-    {
-        $errorReport = [
-            'producer' => 'AbraFlexi Contracts2Invoices',
-            'status' => 'error',
-            'timestamp' => (new \DateTime())->format('c'),
-            'message' => 'Invoice generation failed: Connection timeout',
-            'artifacts' => [
-                'invoices' => []
-            ],
-            'metrics' => [
-                'processed_contracts' => 5,
-                'created_invoices' => 0,
-                'failed_contracts' => 5
-            ]
-        ];
-
-        $this->validateSchemaCompliance($errorReport, 'AbraFlexi Contracts2Invoices');
-        $this->assertEquals('error', $errorReport['status']);
-    }
-
-    public function testWarningStatusHandling(): void
-    {
-        $warningReport = [
-            'producer' => 'AbraFlexi Contracts2Liabilities',
-            'status' => 'warning',
-            'timestamp' => (new \DateTime())->format('c'),
-            'message' => 'Liabilities generation completed with warnings',
-            'artifacts' => [
-                'liabilities' => [1, 2]
-            ],
-            'metrics' => [
-                'processed_advances' => 5,
-                'created_liabilities' => 2
-            ]
-        ];
-
-        $this->validateSchemaCompliance($warningReport, 'AbraFlexi Contracts2Liabilities');
-        $this->assertEquals('warning', $warningReport['status']);
     }
 }

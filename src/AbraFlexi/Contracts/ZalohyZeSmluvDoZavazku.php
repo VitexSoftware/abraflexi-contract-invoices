@@ -133,32 +133,36 @@ class ZalohyZeSmluvDoZavazku extends \AbraFlexi\DodavatelskaSmlouva
         $status = 'success';
         $message = 'Liabilities generation completed';
         $metrics = [
-            'processed_advances' => count($this->zalohy),
-            'created_liabilities' => count($this->zavazky),
+            'processed_advances' => \count($this->zalohy),
+            'created_liabilities' => \count($this->zavazky),
         ];
-        
+
         // Check for errors in status messages
         $statusMessages = $this->getStatusMessages();
+
         foreach ($statusMessages as $statusMsg) {
             if ($statusMsg['type'] === 'error') {
                 $status = 'error';
-                $message = 'Liabilities generation failed: ' . $statusMsg['message'];
+                $message = 'Liabilities generation failed: '.$statusMsg['message'];
+
                 break;
-            } elseif ($statusMsg['type'] === 'warning' && $status !== 'error') {
+            }
+
+            if ($statusMsg['type'] === 'warning' && $status !== 'error') {
                 $status = 'warning';
                 $message = 'Liabilities generation completed with warnings';
             }
         }
-        
+
         return [
             'producer' => 'AbraFlexi Contracts2Liabilities',
             'status' => $status,
             'timestamp' => (new \DateTime())->format('c'),
             'message' => $message,
             'artifacts' => [
-                'liabilities' => array_values($this->zavazky)
+                'liabilities' => array_values($this->zavazky),
             ],
-            'metrics' => $metrics
+            'metrics' => $metrics,
         ];
     }
 }

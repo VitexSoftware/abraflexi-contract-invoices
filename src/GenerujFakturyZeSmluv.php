@@ -125,20 +125,28 @@ if ($contractList) {
 $status = 'success';
 $message = 'Invoice generation completed';
 $metrics = [
-    'processed_contracts' => count($contractList ?? []),
-    'created_invoices' => count(array_filter($jsonOutput ?? [], function($value) { return !is_array($value); })),
-    'failed_contracts' => count(array_filter($jsonOutput ?? [], function($value) { return is_array($value); }))
+    'processed_contracts' => \count($contractList ?? []),
+    'created_invoices' => \count(array_filter($jsonOutput ?? [], static function ($value) {
+        return !\is_array($value);
+    })),
+    'failed_contracts' => \count(array_filter($jsonOutput ?? [], static function ($value) {
+        return \is_array($value);
+    })),
 ];
 
 // Check for errors
 $hasErrors = false;
 $hasWarnings = false;
 $statusMessages = $contractor->getStatusMessages();
+
 foreach ($statusMessages as $statusMsg) {
     if ($statusMsg['type'] === 'error') {
         $hasErrors = true;
+
         break;
-    } elseif ($statusMsg['type'] === 'warning') {
+    }
+
+    if ($statusMsg['type'] === 'warning') {
         $hasWarnings = true;
     }
 }
@@ -157,9 +165,9 @@ $schemaCompliantOutput = [
     'timestamp' => (new \DateTime())->format('c'),
     'message' => $message,
     'artifacts' => [
-        'invoices' => $jsonOutput
+        'invoices' => $jsonOutput,
     ],
-    'metrics' => $metrics
+    'metrics' => $metrics,
 ];
 
 $written = file_put_contents($destination, json_encode($schemaCompliantOutput, \Ease\Shared::cfg('DEBUG') ? \JSON_PRETTY_PRINT : 0));
