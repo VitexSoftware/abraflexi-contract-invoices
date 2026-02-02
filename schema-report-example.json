@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/report.json",
+  "producer": "string - Name of the script/application that generated the report",
+  "status": "success|error|warning - Application execution result",
+  "timestamp": "ISO8601 date-time - Application execution completion time",
+  "message": "string - Human-readable message about the execution result",
+  "artifacts": {
+    "description": "Artifacts produced by the application. Keys correspond to names declared in the 'produces' section.",
+    "example": {
+      "invoices": ["list of invoice codes or objects"],
+      "liabilities": ["list of liability objects"],
+      "receivables": ["list of receivable objects"]
+    }
+  },
+  "metrics": {
+    "description": "Additional execution metrics (optional). Keys are metric names, values are numeric or string.",
+    "example": {
+      "processed_contracts": 10,
+      "created_invoices": 8,
+      "failed_contracts": 2
+    }
+  }
+}

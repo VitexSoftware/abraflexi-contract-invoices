@@ -213,4 +213,38 @@ class ZalohyZeSmluvDoPohledavek extends \AbraFlexi\Smlouva
 
         return $zavazek;
     }
+
+    public function report(): array
+    {
+        $status = 'success';
+        $message = 'Receivables generation completed';
+        $metrics = [
+            'processed_advances' => count($this->zalohy),
+            'created_receivables' => count($this->pohledavky),
+        ];
+        
+        // Check for errors in status messages
+        $statusMessages = $this->getStatusMessages();
+        foreach ($statusMessages as $statusMsg) {
+            if ($statusMsg['type'] === 'error') {
+                $status = 'error';
+                $message = 'Receivables generation failed: ' . $statusMsg['message'];
+                break;
+            } elseif ($statusMsg['type'] === 'warning' && $status !== 'error') {
+                $status = 'warning';
+                $message = 'Receivables generation completed with warnings';
+            }
+        }
+        
+        return [
+            'producer' => 'AbraFlexi Contracts2Receivables',
+            'status' => $status,
+            'timestamp' => (new \DateTime())->format('c'),
+            'message' => $message,
+            'artifacts' => [
+                'receivables' => array_values($this->pohledavky)
+            ],
+            'metrics' => $metrics
+        ];
+    }
 }
