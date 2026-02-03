@@ -61,38 +61,27 @@ $contractList = $contractor->getColumnsFromAbraFlexi(
 
 if ($contractList) {
     foreach ($contractList as $counter => $contractInfo) {
-        $message = ($counter + 1).'/'.\count($contractList).' '.$contractInfo['nazev'].' '.$contractInfo['firma']->showAs;
-
         $contractor->setMyKey($contractInfo['id']);
 
+        $message = ($counter + 1).'/'.\count($contractList).' '.$contractInfo['nazev'].' '.$contractInfo['firma']->showAs;
+
+        $contractor->setObjectName($message);
+
         if ($contractor->generovaniFaktur()) {
-            if (\array_key_exists('messages', $contractor->lastResult)) {
-                if (
-                    strstr(
-                        $contractor->lastResult['messages']['message'],
-                        'Nebyla',
-                    )
-                ) {
-                    $contractor->addStatusMessage($message.': '.$contractor->lastResult['messages']['message'], 'debug');
+            //  {"winstrom":{"operation":"Generování faktur","success":"ok","results":"","messages":["Nebyla vygenerována žádná nová faktura."],"errors":[],"@version":"1.0"}}
+            //  {"winstrom":{"operation":"Generování faktur","success":"failed","results":"","messages":"","errors":[{"message@messageCode":"validace.notNull","message":"IPTV - Pole 'Interní číslo' musí být vyplněno."}],"@version":"1.0"}}
+
+            if ($contractor->getMessages()) {
+                if (strstr($contractor->getMessages()[0], 'Nebyla')) {
+                    $contractor->addStatusMessage($contractor->getMessages()[0], 'debug');
                 } else {
-                    if (
-                        strstr(
-                            $contractor->lastResult['messages']['message'],
-                            'faktur',
-                        ) && strstr(
-                            $contractor->lastResult['messages']['message'],
-                            ':',
-                        )
-                    ) {
-                        $hmr = explode(
-                            ':',
-                            $contractor->lastResult['messages']['message'],
-                        );
+                    if (strstr($contractor->getMessages()[0], 'faktur') && strstr($contractor->getMessages()[0], ':')) {
+                        $hmr = explode(':', $contractor->getMessages()[0]);
                         $howMany = (int) end($hmr);
                         $generated = $invoicer->getColumnsFromAbraFlexi(
                             ['kod'],
                             [
-                                'firma' => \AbraFlexi\Functions::code($contractInfo['firma']),
+                                'firma' => \AbraFlexi\Code::ensure((string) $contractInfo['firma']),
                                 'cisSml' => $contractInfo['kod'],
                                 'limit' => $howMany,
                             ],
@@ -113,8 +102,8 @@ if ($contractList) {
 
                 $jsonOutput[$contractInfo['kod']] = $contractInfo['nazev'];
             } else {
-                if (\array_key_exists('success', $contractor->lastResult) && ($contractor->lastResult['success'] === 'failed')) {
-                    $jsonOutput[$contractInfo['id']] = false;
+                if ($contractor->success() === false) {
+                    $jsonOutput[$contractInfo['id']] = $contractor->getErrors();
                     $contractor->addStatusMessage($message, 'warning');
                 }
             }
@@ -132,7 +121,56 @@ if ($contractList) {
     $contractor->addStatusMessage(_('No Contract with AutoGenerate flag found'), 'debug');
 }
 
-$written = file_put_contents($destination, json_encode($jsonOutput, \Ease\Shared::cfg('DEBUG') ? \JSON_PRETTY_PRINT : 0));
+// Create schema-compliant report
+$status = 'success';
+$message = 'Invoice generation completed';
+$metrics = [
+    'processed_contracts' => \count($contractList ?? []),
+    'created_invoices' => \count(array_filter($jsonOutput ?? [], static function ($value) {
+        return !\is_array($value);
+    })),
+    'failed_contracts' => \count(array_filter($jsonOutput ?? [], static function ($value) {
+        return \is_array($value);
+    })),
+];
+
+// Check for errors
+$hasErrors = false;
+$hasWarnings = false;
+$statusMessages = $contractor->getStatusMessages();
+
+foreach ($statusMessages as $statusMsg) {
+    if ($statusMsg['type'] === 'error') {
+        $hasErrors = true;
+
+        break;
+    }
+
+    if ($statusMsg['type'] === 'warning') {
+        $hasWarnings = true;
+    }
+}
+
+if ($hasErrors) {
+    $status = 'error';
+    $message = 'Invoice generation failed';
+} elseif ($hasWarnings) {
+    $status = 'warning';
+    $message = 'Invoice generation completed with warnings';
+}
+
+$schemaCompliantOutput = [
+    'producer' => 'AbraFlexi Contracts2Invoices',
+    'status' => $status,
+    'timestamp' => (new \DateTime())->format('c'),
+    'message' => $message,
+    'artifacts' => [
+        'invoices' => $jsonOutput,
+    ],
+    'metrics' => $metrics,
+];
+
+$written = file_put_contents($destination, json_encode($schemaCompliantOutput, \Ease\Shared::cfg('DEBUG') ? \JSON_PRETTY_PRINT : 0));
 $contractor->addStatusMessage(sprintf(_('Saving result to %s'), $destination), $written ? 'success' : 'error');
 
 exit($written ? 0 : 1);

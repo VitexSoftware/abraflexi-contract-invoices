@@ -127,58 +127,42 @@ class ZalohyZeSmluvDoZavazku extends \AbraFlexi\DodavatelskaSmlouva
 
         return $engine->conversion();
     }
-    
-    /**
-     * Generate MultiFlexi report compliant with schema.
-     * 
-     * @return array Report data following the MultiFlexi report schema
-     */
+
     public function report(): array
     {
-        $advanceCount = \count($this->zalohy);
-        $liabilityCount = \count($this->zavazky);
-        $hasErrors = false;
-        $hasWarnings = false;
-        
-        // Check for errors or warnings in status messages
-        foreach ($this->getStatusMessages() as $message) {
-            if (isset($message['type'])) {
-                if ($message['type'] === 'error') {
-                    $hasErrors = true;
-                }
-                if ($message['type'] === 'warning') {
-                    $hasWarnings = true;
-                }
+        $status = 'success';
+        $message = 'Liabilities generation completed';
+        $metrics = [
+            'processed_advances' => \count($this->zalohy),
+            'created_liabilities' => \count($this->zavazky),
+        ];
+
+        // Check for errors in status messages
+        $statusMessages = $this->getStatusMessages();
+
+        foreach ($statusMessages as $statusMsg) {
+            if ($statusMsg['type'] === 'error') {
+                $status = 'error';
+                $message = 'Liabilities generation failed: '.$statusMsg['message'];
+
+                break;
+            }
+
+            if ($statusMsg['type'] === 'warning' && $status !== 'error') {
+                $status = 'warning';
+                $message = 'Liabilities generation completed with warnings';
             }
         }
-        
-        // Determine overall status
-        if ($hasErrors) {
-            $status = 'error';
-            $message = 'Processing completed with errors';
-        } elseif ($hasWarnings) {
-            $status = 'warning';
-            $message = 'Processing completed with warnings';
-        } else {
-            $status = 'success';
-            $message = sprintf(
-                'Successfully processed %d advance invoice(s) into %d liability/liabilities',
-                $advanceCount,
-                $liabilityCount
-            );
-        }
-        
-        $report = [
-            'producer' => 'ZalohyZeSmluvDoZavazku',
+
+        return [
+            'producer' => 'AbraFlexi Contracts2Liabilities',
             'status' => $status,
-            'timestamp' => date('c'),
+            'timestamp' => (new \DateTime())->format('c'),
             'message' => $message,
-            'metrics' => [
-                'advance_invoices_processed' => $advanceCount,
-                'liabilities_created' => $liabilityCount,
+            'artifacts' => [
+                'liabilities' => array_values($this->zavazky),
             ],
+            'metrics' => $metrics,
         ];
-        
-        return $report;
     }
 }
