@@ -140,13 +140,13 @@ $hasWarnings = false;
 $statusMessages = $contractor->getStatusMessages();
 
 foreach ($statusMessages as $statusMsg) {
-    if ($statusMsg['type'] === 'error') {
+    if ($statusMsg->getType() === 'error') {
         $hasErrors = true;
 
         break;
     }
 
-    if ($statusMsg['type'] === 'warning') {
+    if ($statusMsg->getType() === 'warning') {
         $hasWarnings = true;
     }
 }
