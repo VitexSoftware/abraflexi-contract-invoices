@@ -9,7 +9,6 @@ set -e
 
     fi
 
-composer-debian abraflexi-contract-invoices
 
 #DEBHELPER#
 
