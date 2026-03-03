@@ -1,12 +1,23 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@
+	dh $@ --with phpcomposer
+
+override_dh_auto_build:
+	# Generate Debian autoloader for abraflexi-contract-invoices
+	cat > debian/autoload.php <<'AUTOLOADER'
+<?php
+// Debian autoloader for abraflexi-contract-invoices
+// Load dependency autoloaders
+require_once '/usr/share/php/AbraFlexi/autoload.php';
+require_once '/usr/share/php/AbraFlexiBricks/autoload.php';
+AUTOLOADER
 
 override_dh_install:
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/conf/composer.json |sponge debian/conf/composer.json
 	dh_install
-	sed -i -e 's/..\/vendor/\/var\/lib\/composer\/abraflexi-contract-invoices/g' 	debian/abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/*.php
+	install -D -m 0644 debian/autoload.php debian/abraflexi-contract-invoices/usr/share/php/abraflexi-contract-invoices/autoload.php
+	sed -i -e 's/..\/..\/vendor/\/usr\/share\/php\/abraflexi-contract-invoices/g' 	debian/abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/*.php
 	sed -i -e 's/..\/.env//'                                  debian/abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/*.php
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//'`'"'  multiflexi/contract_to_invoices.multiflexi.app.json | sponge debian/multiflexi-abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/multiflexi/contract_to_invoices.multiflexi.app.json
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//'`'"'  multiflexi/contract_to_liabilities.multiflexi.app.json | sponge debian/multiflexi-abraflexi-contract-invoices/usr/lib/abraflexi-contract-invoices/multiflexi/contract_to_liabilities.multiflexi.app.json
