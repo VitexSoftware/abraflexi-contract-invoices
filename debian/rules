@@ -3,16 +3,6 @@
 %:
 	dh $@ --with phpcomposer
 
-override_dh_auto_build:
-	# Generate Debian autoloader for abraflexi-contract-invoices
-	cat > debian/autoload.php <<'AUTOLOADER'
-<?php
-// Debian autoloader for abraflexi-contract-invoices
-// Load dependency autoloaders
-require_once '/usr/share/php/AbraFlexi/autoload.php';
-require_once '/usr/share/php/AbraFlexiBricks/autoload.php';
-AUTOLOADER
-
 override_dh_install:
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/conf/composer.json |sponge debian/conf/composer.json
 	dh_install
