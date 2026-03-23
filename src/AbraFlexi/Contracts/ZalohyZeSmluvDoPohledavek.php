@@ -4,7 +4,7 @@
  * System.Spoje.Net - Konvertor zálohových faktur do závazků.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
+ * @copyright  2015-2026 Spoje.Net
  */
 declare(strict_types=1);
 

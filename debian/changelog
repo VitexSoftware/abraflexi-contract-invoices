@@ -1,8 +1,14 @@
-abraflexi-contract-invoices (1.1.1) UNRELEASED; urgency=medium
+abraflexi-contract-invoices (1.1.2) UNRELEASED; urgency=medium
+
+  * deb autoloader update
+
+ -- vitex <info@vitexsoftware.cz>  Mon, 23 Mar 2026 01:33:15 +0100
+
+abraflexi-contract-invoices (1.1.1) unstable; urgency=medium
 
   * liabilities deb
 
- -- vitex <info@vitexsoftware.cz>  Mon, 19 Jan 2026 18:35:40 +0100
+ -- vitex <info@vitexsoftware.cz>  Mon, 23 Mar 2026 01:33:05 +0100
 
 abraflexi-contract-invoices (1.1.0) unstable; urgency=medium
 

@@ -1,4 +1,4 @@
-# WARP.md - Working AI Reference for abraflexi-contract-invoices
+# AGENTS.md - Working AI Reference for abraflexi-contract-invoices
 
 ## Project Overview
 **Type**: PHP Project/Debian Package

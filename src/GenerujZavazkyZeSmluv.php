@@ -17,7 +17,7 @@ declare(strict_types=1);
  * Generate invoices from Contracts.
  *
  * @author     Vítězslav Dvořák <vitex@vitexsoftware.com>
- * @copyright  2018-2025 Spoje.Net
+ * @copyright  2018-2026 Spoje.Net
  */
 
 use AbraFlexi\Contracts\ZalohyZeSmluvDoZavazku;

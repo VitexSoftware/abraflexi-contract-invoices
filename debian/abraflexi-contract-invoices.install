@@ -1,8 +1,8 @@
-debian/conf/composer.json       usr/lib/abraflexi-contract-invoices/
-src/*			        usr/lib/abraflexi-contract-invoices/
-src/AbraFlexi/Contracts/*	usr/lib/abraflexi-contract-invoices/AbraFlexi/Contracts
-
-bin/*                           usr/bin/
-abraflexi-contract-invoices.svg usr/share/icons/hicolor/scalable/apps/
+bin/*                           	usr/bin/
+src/*			        	usr/lib/abraflexi-contract-invoices/
+abraflexi-contract-invoices.svg 	usr/share/icons/hicolor/scalable/apps/
 io.github.vitexsoftware.abraflexi_contract_invoices.desktop usr/share/applications/
 
+src/AbraFlexi/Contracts/*		usr/share/php/abraflexi-contract-invoices/
+debian/autoload.php 			usr/share/php/abraflexi-contract-invoices/
+debian/tmp/composer.json		usr/share/php/abraflexi-contract-invoices/
