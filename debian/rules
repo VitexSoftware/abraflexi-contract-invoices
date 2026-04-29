@@ -13,9 +13,9 @@ override_dh_install:
 	install -D -m 0644 debian/autoload.php debian/abraflexi-contract-invoices/usr/share/php/abraflexi-contract-invoices/autoload.php
 	sed -i "1a defined('APP_NAME') || define('APP_NAME', '$(PKG_SOURCE)');" \
 		debian/abraflexi-contract-invoices/usr/share/php/abraflexi-contract-invoices/autoload.php
-	sed -i "s|: 'unknown'|: '$(PKG_SOURCE)'|" \
+	sed -i "s|'unknown'|'$(PKG_SOURCE)'|" \
 		debian/abraflexi-contract-invoices/usr/share/php/abraflexi-contract-invoices/autoload.php
-	sed -i "s|: '0.0.0'|: '$(PKG_VERSION)'|" \
+	sed -i "s|'0.0.0'|'$(PKG_VERSION)'|" \
 		debian/abraflexi-contract-invoices/usr/share/php/abraflexi-contract-invoices/autoload.php
 	sed -i "2a defined('APP_VERSION') || define('APP_VERSION', '$(PKG_VERSION)');" \
 		debian/abraflexi-contract-invoices/usr/share/php/abraflexi-contract-invoices/autoload.php
