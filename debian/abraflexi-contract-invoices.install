@@ -6,3 +6,4 @@ io.github.vitexsoftware.abraflexi_contract_invoices.desktop usr/share/applicatio
 src/AbraFlexi/Contracts/*		usr/share/php/abraflexi-contract-invoices/
 debian/autoload.php 			usr/share/php/abraflexi-contract-invoices/
 debian/tmp/composer.json		usr/share/php/abraflexi-contract-invoices/
+io.github.vitexsoftware.abraflexi_contract_invoices.metainfo.xml	usr/share/metainfo/
