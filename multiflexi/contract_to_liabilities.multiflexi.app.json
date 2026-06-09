@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/application.json",
-  "schemaVersion": "3.2.1",
+  "schemaVersion": "3.4.0",
   "version": "1.2.3",
   "uuid": "fecc7f19-a7a7-4e57-ba09-cafcfeb80829",
   "name": {
@@ -23,6 +23,13 @@
   "homepage": "https://github.com/VitexSoftware/abraflexi-contract-invoices",
   "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
   "executable": "abraflexi-contract-to-liabilities",
+  "events": {
+    "emits": {
+      "liability.created": {
+        "description": "A liability was created"
+      }
+    }
+  },
   "environment": {
     "APP_DEBUG": {
       "type": "bool",
@@ -93,7 +100,6 @@
       "hint": "OST. ZÁVAZKY",
       "required": true,
       "category": "Behavior"
-            
     },
     "RESULT_FILE": {
       "type": "string",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/application.json",
-  "schemaVersion": "3.2.1",
+  "schemaVersion": "3.4.0",
   "uuid": "e0e20955-d71c-4003-85e5-7d65eb9da03f",
   "name": {
     "en": "Contract to Invoices",
@@ -22,6 +22,15 @@
   "homepage": "https://github.com/VitexSoftware/abraflexi-contract-invoices",
   "ociimage": "docker.io/vitexsoftware/abraflexi-contract-invoices",
   "executable": "abraflexi-contract-invoices",
+  "events": {
+    "emits": {
+      "invoice.issued": {
+        "description": "An issued invoice was created",
+        "evidence": "faktura-vydana",
+        "operation": "create"
+      }
+    }
+  },
   "environment": {
     "APP_DEBUG": {
       "type": "bool",
